@@ -1,0 +1,772 @@
+[![AI முகவர் கட்டமைப்புகள் ஆராய்வு](../../../translated_images/ta/lesson-2-thumbnail.c65f44c93b8558df.webp)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
+
+> _(மேலுள்ள படத்தை கிளிக் செய்து இந்த பாடத்தின் வீடியோவை பார்வையிடவும்)_
+
+# AI முகவர் கட்டமைப்புகளை ஆராய்தல்
+
+AI முகவர் கட்டமைப்புகள் என்பது AI முகவர்களை உருவாக்குதல், பகிர்ந்தளித்தல் மற்றும் நிர்வகிப்பதை எளிதாக்க உருவாக்கப்பட்ட மென்பொருள் தளங்களாகும். இத்தகைய கட்டமைப்புகள் முன்னமைக்கப்பட்ட கூறுகள், abstraction-கள் மற்றும் கருவிகளைக் கொடுத்து சிக்கலான AI கணினி அமைப்புகளை உருவாக்குவதனை சீர்மயமாக்குகின்றன.
+
+இவை பொதுவான சவால்களுக்கு நிலைநிறுத்திய அணுகுமுறைகளை வழங்குவதன் மூலம் டெவலப்பர்கள் தங்கள் பயன்பாடுகளின் தனித்துவமான அம்சங்களில் கவனம் செலுத்த உதவுகின்றன. அவை AI அமைப்புகளை கட்டமைக்கும் போது தகவற்திறன், அணுகுமுறை மற்றும் திறமையை மேம்படுத்துகின்றன.
+
+## அறிமுகம் 
+
+இந்த பாடத்தில் இடம் பெறுவது:
+
+- AI முகவர் கட்டமைப்புகள் என்ன மற்றும் அவை டெவலப்பர்கள் எதை சாதிக்க உதவுகின்றன?
+- அணிகள் எவ்வாறு இதை பயன்படுத்தி விரைவில் மாதிரிப்பதிவு (prototype), மீள்பார்வை (iterate), மற்றும் அவர்களின் முகவர் திறன்களை மேம்படுத்தலாம்?
+- Microsoft <a href="https://aka.ms/ai-agents/autogen" target="_blank">AutoGen</a>, <a href="https://aka.ms/ai-agents-beginners/semantic-kernel" target="_blank">Semantic Kernel</a>, மற்றும் <a href="https://aka.ms/ai-agents-beginners/ai-agent-service" target="_blank">Azure AI Agent Service</a> உருவாக்கிய கட்டமைப்புகள் மற்றும் கருவிகள் இடையே என்ன வேறுபாடுகள் உள்ளன?
+- நான் ஏற்கனவே உள்ள Azure சுற்றுச்சூழல் கருவிகளை நேரடியாக ஒருங்கிணைக்க முடியுமா, அல்லது தனி நிலை தீர்வுகள் தேவைப்படுமா?
+- Azure AI Agents சேவை என்ன மற்றும் இது எனக்கு எப்படி உதவி செய்கிறது?
+
+## கற்றல் இலக்குகள்
+
+இந்த பாடத்தின் இலக்குகள் உங்களுக்கு உதவும்:
+
+- AI மேம்பாட்டில் AI முகவர் கட்டமைப்பின் பங்கு புரிந்துகொள்ள.
+- புத்திசாலி முகவர்களை கட்டமைக்க AI முகவர் கட்டமைப்புகளை எவ்வாறு பயன்படுத்துவது என்பதை அறிதல்.
+- AI முகவர் கட்டமைப்புகள் மூலம் இயலும் முக்கிய திறன்களை அறிதல்.
+- AutoGen, Semantic Kernel, மற்றும் Azure AI Agent Service இடையிலான வேறுபாடுகளை புரிந்துகொள்ள.
+
+## AI முகவர் கட்டமைப்புகள் என்ன மற்றும் அவை டெவலப்பர்கள் என்ன செய்்தல் செய்ய அனுமதிக்கின்றன?
+
+பாரம்பரிய AI கட்டமைப்புகள் உங்கள் செயலிகளில் AI ஐ ஒருங்கிணைக்க உதவுகின்றன மற்றும் இந்த செயலிகளை பின்வரும் விதங்களில் சிறப்பாக்க முடியும்:
+
+- **Personalization**: AI பயனர் பழக்கவழக்கங்கள் மற்றும் விருப்பங்களை பகுப்பாய்வு செய்து தனிப்பயன் பரிந்துரைகள், உள்ளடக்கம், மற்றும் அனுபவங்களை வழங்க முடியும்.
+Example: Netflix போன்ற ஸ்ட்ரீமிங் சேவைகள் பார்வை வரலாற்றின் அடிப்படையில் திரைப்படங்கள் மற்றும் நிகழ்ச்சிகளை பரிந்துரைக்க AI ஐ பயன்படுத்தி பயனர் ஈடுபாடு மற்றும் திருப்தியை உயர்த்துகின்றன.
+- **Automation and Efficiency**: AI சீர்முறையRepeating tasks ஐ தானாக செய்ய, வேலைபார்வைகளை எளிமையாக்க, மற்றும் செயலாக்க திறனை மேம்படுத்த முடியும்.
+Example: வாடிக்கையாளர் சேவை பயன்பாடுகள் பொதுவான கேள்விகளை கையாள AI-செயலாக்க செய்யப்பட்ட உரையாடல் பாட்டுகளை பயன்படுத்துகின்றன, பதில் நேரத்தைக் குறைத்து மனித முகவர்களை சிக்கலான பிரச்சனைகளுக்கு விடுவிக்கின்றன.
+- **Enhanced User Experience**: AI குரல் அடையாளம், இயற்கை மொழி செயலாக்கம், மற்றும் முன்னுரிமைப்படுத்திய உரை போன்ற புத்திசாலி அம்சங்களை வழங்கி மொத்த பயனர் அனுபவத்தை மேம்படுத்த முடியும்.
+Example: Siri மற்றும் Google Assistant போன்ற மெய்யெழுந்து உதவியாளர்கள் குரல் கட்டளைகளை புரிந்து பதிலளிக்க AI ஐ பயன்படுத்தி பயனர்களுக்கு சாதனங்களுடன் தொடர்பு கொள்ள எளிதாக்குகின்றன.
+
+### இது எல்லாம் நல்லதேய்தானே, ஆனால் ஏன் AI முகவர் கட்டமைப்பு தேவை?
+
+AI முகவர் கட்டமைப்புகள் சாதாரண AI கட்டமைப்புகளைவிட அதிகமானதை வழங்குகின்றன. அவை பயனர்களுடன், பிற முகவர்களுடன் மற்றும் சுற்றுச்சூழலுடன் தொடர்பு கொண்டு குறிப்பிட்ட குறிக்கோள்களை அடைவதற்காக புத்திசாலி முகவர்களை உருவாக்குவதற்கு வடிவமைக்கப்பட்டுள்ளன. இ먁 முகவர்கள் தன்னாட்சி நடத்தை காட்ட, முடிவுகளை எடுக்க, மற்றும் மாறுபடும் சூழல்களுக்கு தழுவி சரிபார்க்கும் திறன் கொண்டிருக்க முடியும். AI முகவர் கட்டமைப்புகள் வழங்கும் முக்கிய திறன்கள் சில:
+
+- **Agent Collaboration and Coordination**: சிக்கலான பணிகளை தீர்க்க பல AI முகவர்கள் ஒன்றிணைந்து, தொடர்புகொண்டு, ஒத்துழைக்க முடியும்.
+- **Task Automation and Management**: பன்மடங்கு படித் திட்ட வேலை流程்களை தானாக செயல்படுத்தல், பணிகள் பகிர்வு மற்றும் முகவர்களிடையே தொடர்ச்சியான பணிமனித நிர்வாகம் ஆகியவற்றுக்கான யந்திரவழிகள்.
+- **Contextual Understanding and Adaptation**: முகவர்களுக்கு சூழலைக் கொள்ளவிடும் திறன், மாறும் சூழல்களுக்கு ஏற்ப வடிகட்டுதல், மற்றும் உடனடி தகவலின் அடிப்படையில் முடிவுகள் எடுக்குதல்.
+
+சுருக்கமாகச் சொல்வதானால், முகவர்கள் நீங்கள் செய்யக்கூடியவற்றை விரிவுபடுத்தி தானியமாக்கலை அடுத்த நிலைக்கு கொண்டு சென்று, சுற்றுச்சூழலிலிருந்து தழுவி கற்று அடையக்கூடிய புத்திசாலி அமைப்புகளை உருவாக்க உதவுகின்றனர்.
+
+## முகவரி திறன்களை விரைவாக மாதிரிப்பதிவு செய்ய, மீள்பார்வை நடத்த மற்றும் மேம்படுத்த எவ்வாறு?
+
+இது வேகமாக மாற்றம் அடையும் துறையாகும், ஆனால் அதிகபட்சமான AI முகவர் கட்டமைப்புகளில் பொதுவாக காணப்படும் சில அம்சங்கள் உள்ளன: கூறு (module) கூறுகள், ஒத்துழைப்பு கருவிகள், மற்றும் நேரடி கற்றல். இவற்றை விரிவாக பார்க்கலாம்:
+
+- **Use Modular Components**: AI SDKகள் முன்பே உருவாக்கப்பட்ட கூறுகள் போன்ற AI மற்றும் நினைவக இணைப்பிகள், இயல்பான மொழியில் அல்லது கோடு பிளக்கின்களைக் கொண்டு function calling, prompt மாதிரிகள் மற்றும் பலவற்றை வழங்குகின்றன.
+- **Leverage Collaborative Tools**: குறிப்பிட்ட பங்கு மற்றும் பணிகள் கொண்ட முகவர்களை வடிவமைத்து அவற்றை பரிசோதித்து ஒத்துழைப்பு வேலைபாட்டை திருத்தும் வகையில் அமைக்கலாம்.
+- **Learn in Real-Time**: முகவர்கள் தொடர்புகளிலிருந்து கற்றுக் கொண்டு தங்கள் நடத்தை கணிதம்செய்து உடனடியாக சரிசெய்வதற்கான feedback loop-களை அமல்படுத்துங்கள்.
+
+### Use Modular Components
+
+Microsoft Semantic Kernel மற்றும் LangChain போன்ற SDKகள் AI இணைப்பிகள், prompt மாதிரிகள் மற்றும் நினைவக மேலாண்மை போன்ற முன்புத்தயாரிக்கப்பட்ட கூறுகளை வழங்குகின்றன.
+
+**How teams can use these**: குழுக்கள் இந்த கூறுகளை விரைவில் ஒருங்கிணைத்து பொது செயற்பாட்டு மாதிரியை (prototype) உருவாக்கி பரிசோதனை மற்றும் மீள்பார்வையை துரிதமாக செய்யலாம்.
+
+**How it works in practice**: பயனர் உள்ளீட்டிலிருந்து தகவல்களை உரையாற்று (parse) செய்ய ஒரு முன்புத்தயாரிக்கப்பட்ட பகுப்பாளர், தரவுகளை சேமிக்க மற்றும் மீட்டெடுக்க ஒரு நினைவக கூறு, மற்றும் பயனர்களுடன் தொடர்பு கொள்ள ஒரு prompt உருவாக்கி பயன்படுத்தலாம், இவைகளை அனைத்து கூறுகளையும் வெள்ளை நினைவில் இருந்து உருவாக்க வேண்டிய தேவையின்றி.
+
+**Example code**. Let's look at examples of how you can use a pre-built AI Connector with Semantic Kernel Python and .Net that uses auto-function calling to have the model respond to user input:
+
+``` python
+# செமாண்டிக் கர்னல் பைதான் உதாரணம்
+
+import asyncio
+from typing import Annotated
+
+from semantic_kernel.connectors.ai import FunctionChoiceBehavior
+from semantic_kernel.connectors.ai.open_ai import AzureChatCompletion, AzureChatPromptExecutionSettings
+from semantic_kernel.contents import ChatHistory
+from semantic_kernel.functions import kernel_function
+from semantic_kernel.kernel import Kernel
+
+# உரையாடல் தொடர்புடைய சூழலை கையாள ChatHistory ஆப்ஜெக்ட்டை வரையறுக்கவும்
+chat_history = ChatHistory()
+chat_history.add_user_message("I'd like to go to New York on January 1, 2025")
+
+
+# பயணம் முன்பதிவு செய்யும் செயல்பாட்டை கொண்ட மாதிரி பிளகினை வரையறுக்கவும்
+class BookTravelPlugin:
+    """A Sample Book Travel Plugin"""
+
+    @kernel_function(name="book_flight", description="Book travel given location and date")
+    async def book_flight(
+        self, date: Annotated[str, "The date of travel"], location: Annotated[str, "The location to travel to"]
+    ) -> str:
+        return f"Travel was booked to {location} on {date}"
+
+# கர்னலை உருவாக்கவும்
+kernel = Kernel()
+
+# மாதிரி பிளகினை கர்னல் ஆப்ஜெக்ட்டில் சேர்க்கவும்
+kernel.add_plugin(BookTravelPlugin(), plugin_name="book_travel")
+
+# அஜுர் ஓபன் ஏஐ AI கண்ணெக்டரை வரையறுக்கவும்
+chat_service = AzureChatCompletion(
+    deployment_name="YOUR_DEPLOYMENT_NAME", 
+    api_key="YOUR_API_KEY", 
+    endpoint="https://<your-resource>.azure.openai.com/",
+)
+
+# மாடலை தானாக செயல்பாடு அழைக்கும் முறையில் கட்டமைக்க வேண்டிய கோரிக்கை அமைப்புகளை வரையறுக்கவும்
+request_settings = AzureChatPromptExecutionSettings(function_choice_behavior=FunctionChoiceBehavior.Auto())
+
+
+async def main():
+    # கொடுக்கப்பட்ட உரையாடல் வரலாறு மற்றும் கோரிக்கை அமைப்புகளுக்காக மாடலுக்கு கோரிக்கை அனுப்பவும்
+    # கர்னலில் மாடல் அழைக்க வேண்டிய மாதிரியை உள்ளடக்கியது
+    response = await chat_service.get_chat_message_content(
+        chat_history=chat_history, settings=request_settings, kernel=kernel
+    )
+    assert response is not None
+
+    """
+    Note: In the auto function calling process, the model determines it can invoke the 
+    `BookTravelPlugin` using the `book_flight` function, supplying the necessary arguments. 
+    
+    For example:
+
+    "tool_calls": [
+        {
+            "id": "call_abc123",
+            "type": "function",
+            "function": {
+                "name": "BookTravelPlugin-book_flight",
+                "arguments": "{'location': 'New York', 'date': '2025-01-01'}"
+            }
+        }
+    ]
+
+    Since the location and date arguments are required (as defined by the kernel function), if the 
+    model lacks either, it will prompt the user to provide them. For instance:
+
+    User: Book me a flight to New York.
+    Model: Sure, I'd love to help you book a flight. Could you please specify the date?
+    User: I want to travel on January 1, 2025.
+    Model: Your flight to New York on January 1, 2025, has been successfully booked. Safe travels!
+    """
+
+    print(f"`{response}`")
+    # AI மாடல் பதில் உதாரணம்: `2025 ஜனவரி 1-ம் தேதி நீயூயார்க்குக்கு உங்கள் விமானம் வெற்றிகரமாக முன்பதிவு செய்யப்பட்டது. பாதுகாப்பாக பயணியுங்கள்! ✈️🗽`
+
+    # மாடலின் பதிலை நமது உரையாடல் வரலாறு சூழலுக்கு சேர்க்கவும்
+    chat_history.add_assistant_message(response.content)
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+```csharp
+// Semantic Kernel C# example
+
+using Microsoft.SemanticKernel;
+using Microsoft.SemanticKernel.ChatCompletion;
+using System.ComponentModel;
+using Microsoft.SemanticKernel.Connectors.AzureOpenAI;
+
+ChatHistory chatHistory = [];
+chatHistory.AddUserMessage("I'd like to go to New York on January 1, 2025");
+
+var kernelBuilder = Kernel.CreateBuilder();
+kernelBuilder.AddAzureOpenAIChatCompletion(
+    deploymentName: "NAME_OF_YOUR_DEPLOYMENT",
+    apiKey: "YOUR_API_KEY",
+    endpoint: "YOUR_AZURE_ENDPOINT"
+);
+kernelBuilder.Plugins.AddFromType<BookTravelPlugin>("BookTravel"); 
+var kernel = kernelBuilder.Build();
+
+var settings = new AzureOpenAIPromptExecutionSettings()
+{
+    FunctionChoiceBehavior = FunctionChoiceBehavior.Auto()
+};
+
+var chatCompletion = kernel.GetRequiredService<IChatCompletionService>();
+
+var response = await chatCompletion.GetChatMessageContentAsync(chatHistory, settings, kernel);
+
+/*
+Behind the scenes, the model recognizes the tool to call, what arguments it already has (location) and (date)
+{
+
+"tool_calls": [
+    {
+        "id": "call_abc123",
+        "type": "function",
+        "function": {
+            "name": "BookTravelPlugin-book_flight",
+            "arguments": "{'location': 'New York', 'date': '2025-01-01'}"
+        }
+    }
+]
+*/
+
+Console.WriteLine(response.Content);
+chatHistory.AddMessage(response!.Role, response!.Content!);
+
+// Example AI Model Response: Your flight to New York on January 1, 2025, has been successfully booked. Safe travels! ✈️🗽
+
+// Define a plugin that contains the function to book travel
+public class BookTravelPlugin
+{
+    [KernelFunction("book_flight")]
+    [Description("Book travel given location and date")]
+    public async Task<string> BookFlight(DateTime date, string location)
+    {
+        return await Task.FromResult( $"Travel was booked to {location} on {date}");
+    }
+}
+```
+
+இந்த எடுத்துக்காட்டில் நீங்கள் பார்க்கக்கூடியது என்பது பயனர் உள்ளீட்டிலிருந்து மூலம், இலக்கு மற்றும் பயணத்திற்கான தேதி போன்ற முக்கிய தகவல்களை எடுத்துக் கொள்ள முன்பே உருவாக்கப்பட்ட parser-ஐ எப்படி பயன்படுத்துவது என்பது. இந்த கூறுசார் அணுகுமுறை உங்களுக்கு உயர் மட்டத் திட்டவட்டமான (high-level) லாஜிக் மீது கவனம் செலுத்த அனுமதிக்கிறது.
+
+### Leverage Collaborative Tools
+
+CrewAI, Microsoft AutoGen மற்றும் Semantic Kernel போன்ற கட்டமைப்புகள் ஒன்றிணைந்து செயல்படக்கூடிய பல முகவர்களை உருவாக்குவதற்கு உதவுகின்றன.
+
+**How teams can use these**: குழுக்கள் குறித்த பங்கு மற்றும் பணிகள் கொண்ட முகவர்களை வடிவமைக்கலாம், அவை ஒத்துழைப்பு பணೋபாயங்களை (collaborative workflows) பரிசோதித்து திருத்த உதவுகின்றன மற்றும் மொத்த அமைப்பு திறன்திறனை உயர்த்துகின்றன.
+
+**How it works in practice**: ஒவ்வொரு முகவருக்கும் தனித்திறன் இருந்த அணியை நீங்கள் உருவாக்கலாம்; உதாரணமாக தரவு மீட்டெடு, பகுப்பாய்வு, அல்லது முடிவு எடுப்பது போன்ற சிறப்பான பங்களிப்புகளைக் கொண்ட முகவர்கள். இவை தகவலை பகிர்ந்து ஒரு பொதுக் குறிக்கோளை அடைவதற்கு தொடர்பு கொள்ளலாம், உதாரணமாக ஒரு பயனர் கேள்விக்கு பதில் கூறுதல் அல்லது ஒரு பணியை முடித்தல்.
+
+**Example code (AutoGen)**:
+
+```python
+# முகவர்களை உருவாக்கி, பின்னர் அவர்கள் சேர்ந்து பணியாற்றக்கூடிய சுற்று ரூபி அட்டவணையை உருவாக்கவும், இந்தக் கேஸில் வரிசைப்படி
+
+# தரவு மீட்டெடுக்கும் முகவர்
+# தரவு பகுப்பாய்வு முகவர்
+# தீர்மானம் எடுக்கும் முகவர்
+
+agent_retrieve = AssistantAgent(
+    name="dataretrieval",
+    model_client=model_client,
+    tools=[retrieve_tool],
+    system_message="Use tools to solve tasks."
+)
+
+agent_analyze = AssistantAgent(
+    name="dataanalysis",
+    model_client=model_client,
+    tools=[analyze_tool],
+    system_message="Use tools to solve tasks."
+)
+
+# பயனர் "APPROVE" என்று சொன்னபோது உரையாடல் முடிகிறது
+termination = TextMentionTermination("APPROVE")
+
+user_proxy = UserProxyAgent("user_proxy", input_func=input)
+
+team = RoundRobinGroupChat([agent_retrieve, agent_analyze, user_proxy], termination_condition=termination)
+
+stream = team.run_stream(task="Analyze data", max_turns=10)
+# ஸ்கிரிப்டில் இயக்கும் போது asyncio.run(...) பயன்படுத்தவும்.
+await Console(stream)
+```
+
+மேலேயுள்ள கோடில் நீங்கள் பார்க்கும் விதம் பல முகவர்கள் ஒன்றிணைத்து தரவை பகுப்பாய்வு செய்வதற்காக ஒரு பணியை உருவாக்குவது எப்படி என்பதைக் காணலாம். ஒவ்வொரு முகவரும் குறிப்பிட்ட பங்கை நடைமுறைப்படுத்தி, பணி விரைவாகவும் செயல்பாடாகவும் செயல்படுவதற்காக முகவர்களை ஒருங்கிணைத்து நடத்தப்படுகிறது. நிபுணத்துவமான பணிகளுக்காக தனி முகவர்களை உருவாக்குவதன் மூலம், நீங்கள் பணி திறன்திறனை மேம்படுத்தலாம்.
+
+### Learn in Real-Time
+
+மேம்பட்ட கட்டமைப்புகள் நேரடி சூழல் புரிதலும் அதனைப் பொருத்திச் சரிசெய்தலும் செய்யும் திறன்களை வழங்குகின்றன.
+
+**How teams can use these**: குழுக்கள் முகவர்கள் தொடர்புகளிலிருந்து கற்றுக் கொண்டு தங்கள் நடத்தை தானாகச் சரிசெய்ய feedback loop-களை செயல்படுத்தலாம், இது திறன்களின் தொடர்ச்சியான மேம்பாட்டிற்கு வழிவகுக்கும்.
+
+**How it works in practice**: முகவர்கள் பயனர் கருத்து, சுற்றுச் சூழல் தரவுகள் மற்றும் பணியின் முடிவுகளை பகுப்பாய்வு செய்து தங்கள் அறிவுத்தளத்தை (knowledge base) புதுப்பிக்கலாம், முடிவு எடுக்கும் الگோரிதங்களை சரிசெய்து காலக்காலமாக செயல்திறனை மேம்படுத்தலாம். இந்த மறுசுழற்சி கற்றல் செயல்முறை முகவர்களை மாறும் சூழல்களுக்கும் பயனர் விருப்பங்களுக்கும் ஏற்ப தழுவி செயல்பட உதவுகிறது மற்றும் மொத்த அமைப்பு பயன்திறனை உயர்த்துகிறது.
+
+## AutoGen மற்றும் Semantic Kernel மற்றும் Azure AI Agent Service ஆகியவற்றின் இடையிலான வேறுபாடுகள் என்ன?
+
+இந்த கட்டமைப்புகளை ஒப்பிட பல வழிகள் உள்ளன, ஆனால் அவைகளின் வடிவமைப்பு, திறன்கள் மற்றும் இலக்கு பயன்பாடுகள் குறித்த சில முக்கிய வேறுபாடுகளைப் பார்க்கலாம்:
+
+## AutoGen
+
+AutoGen என்பது Microsoft Research-இன் AI Frontiers Lab உருவாக்கிய ஓபன்-ஸோர்ஸ் கட்டமைப்பாகும். இது நிகழ்வுகள் இயக்கப்படும், பகிர்ந்து விநியோகிக்கக்கூடிய *agentic* பயன்பாடுகளை மையமாகக் கொண்டுள்ளது, பல LLMs மற்றும் SLMs, கருவிகள், மற்றும் மேம்பட்ட பன்முக முகவர் வடிவமைப்பு மாதிரிகளையும் தாங்குகிறது.
+
+AutoGen முகவர்கள் என்ற முதன்மை கருத்தைச் சுற்றி கட்டமைக்கப்பட்டுள்ளது; இவை தங்களது சுற்றுச்சூழலை உணர்ந்து, முடிவுகளை எடுத்து, குறிப்பிட்ட குறிக்கோள்களை அடைவதற்காக செயல்படக்கூடிய சுயாட்சி ஒன்றியங்கள். முகவர்கள் அசிங்களமான செய்திகளின் மூலம் தொடர்பு கொள்கிறார்கள், இது அவர்களை சுயமாகவும் சமநிலையில் (parallel) செயல்படவும் திறனளிக்கிறது, அமைப்பு மானிடத்தன்மை மற்றும் பதில்திறனை மேம்படுத்துகிறது.
+
+<a href="https://en.wikipedia.org/wiki/Actor_model" target="_blank">முகவர்கள் கதாபாத்திர மாதிரியை அடிப்படையாகக் கொண்டவை</a>. விக்கிப்பீடியா படி, ஒரு actor என்பது _ஒத்திசைந்த கணக்கீட்டின் அடிப்படை கட்டுமான அலகு. அது பெற்ற ஒரு செய்திக்கு பதிலாக: உள்ளூரில் முடிவுகள் எடுக்கலாம், மேலும் actors உருவாக்கலாம், மேலும் செய்திகள் அனுப்பலாம், மற்றும் அடுத்தப் பெறப்படும் செய்திக்கு எப்படி பதிலளிக்க வேண்டும் என்பதை தீர்மானிக்கலாம்_.
+
+**Use Cases**: குறியீடு ஜெனரேசன் தானக்கை, தரவுப் பகுப்பாய்வு பணிகள், மற்றும் திட்டமிடல் மற்றும் ஆராய்ச்சி செயல்பாடுகளுக்கான தனிப்பயன் முகவர்களை கட்டமைப்பதற்காக.
+
+இங்கு AutoGen இன் சில முக்கிய கோர்ப் கருத்துகள் கொடுக்கப்பட்டுள்ளன:
+
+- **Agents**. ஒரு முகவர் என்பது ஒரு மென்பொருள் ஒற்றுமையாகும், அது:
+  - **Communicates via messages**, இவை synchronous அல்லது asynchronous இருக்கலாம்.
+  - **Maintains its own state**, இது வந்துவரும் செய்திகள் மூலம் மாற்றப்படலாம்.
+  - **Performs actions** பெறப்பட்ட செய்திகள் அல்லது அதன் நிலையிலுள்ள மாற்றங்களுக்கு பதிலாக. இக்கட்டளை முகவரியின் நிலையை மாற்றலாம் மற்றும் வெளியுறவு விளைவுகளை உண்டாக்கலாம், உதாரணத்திற்கு செய்தி பதிவுகளை புதுப்பித்தல், புதிய செய்திகள் அனுப்புதல், கோடு இயங்குத்தல் அல்லது API அழைப்புகள் செய்தல்.
+    
+  இங்கே நீங்கள் உங்கள் சொந்த முகவரியை Chat திறன்களுடன் உருவாக்கும் குறுகிய கோடு துண்டை காணலாம்:
+
+    ```python
+    from autogen_agentchat.agents import AssistantAgent
+    from autogen_agentchat.messages import TextMessage
+    from autogen_ext.models.openai import OpenAIChatCompletionClient
+
+
+    class MyAgent(RoutedAgent):
+        def __init__(self, name: str) -> None:
+            super().__init__(name)
+            model_client = OpenAIChatCompletionClient(model="gpt-4o")
+            self._delegate = AssistantAgent(name, model_client=model_client)
+    
+        @message_handler
+        async def handle_my_message_type(self, message: MyMessageType, ctx: MessageContext) -> None:
+            print(f"{self.id.type} received message: {message.content}")
+            response = await self._delegate.on_messages(
+                [TextMessage(content=message.content, source="user")], ctx.cancellation_token
+            )
+            print(f"{self.id.type} responded: {response.chat_message.content}")
+    ```
+    
+    முன்னையக் கோடில்தான் `MyAgent` உருவாக்கப்பட்டு `RoutedAgent` இலிருந்து வாரிசாகப் பெற்றுள்ளது. இதில் ஒரு செய்தி ஹேண்ட்லர் உள்ளது, அது செய்திக்குள்ளடக்கத்தை அச்சிடுகின்றது மற்றும் பின்னர் `AssistantAgent` delegate-ஐப் பயன்படுத்தி பதிலளிக்கிறது. குறிப்பாக நாம் `self._delegate`-க்கு `AssistantAgent` என்ற முன்னமைக்கப்பட்ட முகவர் ஒரு எடுத்துக்காட்டை ஒதுக்கினோம், இது chat completion-களை கையாளக்கூடியது.
+
+
+    இப்போது AutoGen-க்கு இந்த முகவர் வகையை அறிவித்து அடுத்ததாகப் پروگرامை தொடங்குவோம்:
+
+    ```python
+    
+    # main.py
+    runtime = SingleThreadedAgentRuntime()
+    await MyAgent.register(runtime, "my_agent", lambda: MyAgent())
+
+    runtime.start()  # பின்னணியில் செய்திகள் செயலாக்கத்தைத் தொடங்குங்கள்.
+    await runtime.send_message(MyMessageType("Hello, World!"), AgentId("my_agent", "default"))
+    ```
+
+    முன்னையக் கோடில் முகவர்கள் runtime உடன் பதிவு செய்யப்பட்டு பின்னர் ஒரு செய்தி அந்த முகவருக்கு அனுப்பப்படும்; இதனால் பின்வரும் வெளியீடு நிகழ்கிறது:
+
+    ```text
+    # Output from the console:
+    my_agent received message: Hello, World!
+    my_assistant received message: Hello, World!
+    my_assistant responded: Hello! How can I assist you today?
+    ```
+
+- **பல முகவர்கள் (Multi agents)**. AutoGen பல முகவர்களை உருவாக்கி அவை சிக்கலான பணிகளை ஒன்றிணைந்து தீர்க்க உதவுகிறது. முகவர்கள் தொடர்பு கொண்டு, தகவலை பகிர்ந்து, அவர்களின் நடவடிக்கைகளை ஒருங்கிணைத்து பிரச்சனைகளை விரைவாகச் சரி செய்ய முடியும். பன்முக முகவர் அமைப்பை உருவாக்க நீங்கள் தரவுத் திரட்டுதல், பகுப்பாய்வு, முடிவு எடுப்பது, பயனர் தொடர்பு போன்ற சிறப்பு செயல்பாடுகளுடன் வேறுபட்ட முகவர் வகைகளை வரையறுக்கலாம். இதுபோன்ற உருவாக்கம் எப்படி இருக்கும் என்பது நாம் உணர்வதற்காக தொடர்கிறோம்:
+
+    ```python
+    editor_description = "Editor for planning and reviewing the content."
+
+    # ஒரு முகவரினை அறிவிக்கும் உதாரணம்
+    editor_agent_type = await EditorAgent.register(
+    runtime,
+    editor_topic_type,  # முகவர் 유형மாக தலைப்பு வகையை பயன்படுத்துகிறது.
+    lambda: EditorAgent(
+        description=editor_description,
+        group_chat_topic_type=group_chat_topic_type,
+        model_client=OpenAIChatCompletionClient(
+            model="gpt-4o-2024-08-06",
+            # api_key="உங்கள்_API_முகவரி",
+        ),
+        ),
+    )
+
+    # மீதமுள்ள அறிவிப்புகள் குறுக்கமாக செய்யப்பட்டுள்ளன
+
+    # குழு உரையாடல்
+    group_chat_manager_type = await GroupChatManager.register(
+    runtime,
+    "group_chat_manager",
+    lambda: GroupChatManager(
+        participant_topic_types=[writer_topic_type, illustrator_topic_type, editor_topic_type, user_topic_type],
+        model_client=OpenAIChatCompletionClient(
+            model="gpt-4o-2024-08-06",
+            # api_key="உங்கள்_API_முகவரி",
+        ),
+        participant_descriptions=[
+            writer_description, 
+            illustrator_description, 
+            editor_description, 
+            user_description
+        ],
+        ),
+    )
+    ```
+
+    முன்னையக் கோடியில் நாம் runtime உடன் பதிவு செய்யப்பட்ட `GroupChatManager`-ஐக் காண்கிறோம். இந்த மேலாளர் எழுத்தாளர், படைப்பாளர், திருத்துநர் மற்றும் பயனர்கள் போன்ற வெவ்வேறு வகை முகவர்களிடையே நிகழும் தொடர்புகளை ஒருங்கிணைப்பதற்குக் கடமைப்பட்டிருக்கிறது.
+
+- **Agent Runtime**. இந்த கட்டமைப்பு ஒரு runtime சூழலை வழங்குகிறது, இது முகவர்களிடையே தொடர்பை வசதியாக்கி, அவர்களின் அடையாளங்களையும் வாழ்க்கைசூழலையும் நிர்வகித்து, பாதுகாப்பு மற்றும் தனியுரிமை எல்லைகளை காப்பாற்றுகிறது. இது உங்கள் முகவர்களை பாதுகாப்பான மற்றும் கட்டுப்படுத்தப்பட்ட சூழலில் இயக்குவதற்கு உதவுகிறது. கவனிக்க வேண்டிய இரண்டு runtime வகைகள் உள்ளன:
+  - **Stand-alone runtime**. இது எல்லா முகவர்களும் ஒரே பிரோகிராமில் ஒரே மொழியில் இருந்து செயல்படும் ஒரே செயல்துறை பயன்பாடுகளுக்கு நல்ல தேர்வாகும். அது எப்படி செயல்படுகிறது என்பதற்கான விளக்கம்:
+
+    <a href="https://microsoft.github.io/autogen/stable/_images/architecture-standalone.svg" target="_blank">ஸ்டாண்ட்-அலோன் runtime</a>   
+Application stack
+
+    *முகவர்கள் runtime வழியாக செய்திகள் மூலம் தொடர்பு கொள்கின்றனர், மற்றும் runtime முகவரிகளின் வாழ்க்கைசூழலை நிர்வகிக்கிறது*
+
+  - **Distributed agent runtime**, இது பல செயல்முறை பயன்பாடுகளுக்கு பொருந்தும், அங்கு முகவர்கள் வெவ்வேறு நிரலைங் மொழிகளில் செயல்படவோ அல்லது வேறென்ன வண்டிகளில் ஓடவோ இருக்கலாம். அது எப்படி செயல்படுகிறது என்பதற்கான விளக்கம்:
+
+    <a href="https://microsoft.github.io/autogen/stable/_images/architecture-distributed.svg" target="_blank">பகிர்ந்தளிக்கப்பட்ட runtime</a>
+
+## Semantic Kernel + Agent Framework
+
+Semantic Kernel என்பது தொழில் நிலைக்கு தயாராகிய AI ஒசரஸ்ட்ரேஷன் (orchestration) SDK ஆகும். இதில் AI மற்றும் நினைவக இணைப்பிகள், மற்றும் ஒரு Agent Framework அடங்கியுள்ளது.
+
+முதலில் சில மைய கூறுகளைப் பார்க்கலாம்:
+
+- **AI Connectors**: இது பைதான் மற்றும் C# இரண்டிலும் வெளி AI சேவைகள் மற்றும் தரவுத் தளத்துடன் தொடர்பு கொள்ள உள்ள இடைமுகமாகும்.
+
+  ```python
+  # செமாண்டிக் கர்நல் பைதான்
+  from semantic_kernel.connectors.ai.open_ai import AzureChatCompletion
+  from semantic_kernel.kernel import Kernel
+
+  kernel = Kernel()
+  kernel.add_service(
+    AzureChatCompletion(
+        deployment_name="your-deployment-name",
+        api_key="your-api-key",
+        endpoint="your-endpoint",
+    )
+  )
+  ```  
+
+    ```csharp
+    // Semantic Kernel C#
+    using Microsoft.SemanticKernel;
+
+    // Create kernel
+    var builder = Kernel.CreateBuilder();
+    
+    // Add a chat completion service:
+    builder.Services.AddAzureOpenAIChatCompletion(
+        "your-resource-name",
+        "your-endpoint",
+        "your-resource-key",
+        "deployment-model");
+    var kernel = builder.Build();
+    ```
+
+    இங்கே நீங்கள் ஒரு kernel உருவாக்கி அதில் chat completion சேவையைச் சேர் காட்டும் ஒரு எளிய எடுத்துக்காட்டை காண்கிறீர்கள். Semantic Kernel ஒரு வெளி AI சேவையுடன் இணைப்பை உருவாக்குகிறது, இங்கே அது Azure OpenAI Chat Completion ஆகும்.
+
+- **Plugins**: இவை பயன்பாடு பயன்படுத்தக்கூடிய செயல்பாடுகளை உள்ளடக்கியவை. தயாராய் உள்ள plugin-களும் நீங்கள் உருவாக்கக் கூடிய தனிப்பயன் plugin-களும் இரண்டும் இருக்கின்றன. தொடர்புடைய கருத்தாக "prompt functions" உள்ளது. இயற்கை மொழி குறிப்பு கொடுத்தமைவால் function அழைக்கப்படுதல் பதிலாக, நீங்கள் சில function-களை மாதிரிக்கைக்கு பாராட்டீர்கள் (broadcast) செய்வீர்கள். தற்போதைய chat சூழ்நிலையை அடிப்படையாகக் கொண்டு, மாதிரி அவற்றில் ஒன்றை அழைக்கத் தேர்வு செய்யலாம் ஒரு கோரிக்கையோ கேள்வியையோ நிறைவேற்ற. உதாரணம்:
+
+  ```python
+  from semantic_kernel.connectors.ai.open_ai.services.azure_chat_completion import AzureChatCompletion
+
+
+  async def main():
+      from semantic_kernel.functions import KernelFunctionFromPrompt
+      from semantic_kernel.kernel import Kernel
+
+      kernel = Kernel()
+      kernel.add_service(AzureChatCompletion())
+
+      user_input = input("User Input:> ")
+
+      kernel_function = KernelFunctionFromPrompt(
+          function_name="SummarizeText",
+          prompt="""
+          Summarize the provided unstructured text in a sentence that is easy to understand.
+          Text to summarize: {{$user_input}}
+          """,
+      )
+
+      response = await kernel_function.invoke(kernel=kernel, user_input=user_input)
+      print(f"Model Response: {response}")
+
+      """
+      Sample Console Output:
+
+      User Input:> I like dogs
+      Model Response: The text expresses a preference for dogs.
+      """
+
+
+  if __name__ == "__main__":
+    import asyncio
+    asyncio.run(main())
+  ```
+
+    ```csharp
+    var userInput = Console.ReadLine();
+
+    // Define semantic function inline.
+    string skPrompt = @"Summarize the provided unstructured text in a sentence that is easy to understand.
+                        Text to summarize: {{$userInput}}";
+    
+    // create the function from the prompt
+    KernelFunction summarizeFunc = kernel.CreateFunctionFromPrompt(
+        promptTemplate: skPrompt,
+        functionName: "SummarizeText"
+    );
+
+    //then import into the current kernel
+    kernel.ImportPluginFromFunctions("SemanticFunctions", [summarizeFunc]);
+
+    ```
+
+    இங்கு, முதலில் ஒரு தொடர்புக்கான மாதிரி prompt `skPrompt` உள்ளது, இது பயனர் எழுத $userInput இடத்தை விடுகிறது. பின்னர் நீங்கள் kernel function `SummarizeText`-ஐ உருவாக்கி அதனை `SemanticFunctions` என்ற plugin பெயருடன் kernel-இல் இறக்குமதி செய்கிறீர்கள். எப்போது அந்த function அழைக்கப்பட வேண்டும் என்பது Semantic Kernel-க்கு புரிய உதவும் function பெயரை கவனிக்கவும்.
+
+- **Native function**: கூறமைப்பு நேரடியாக அழைக்கக்கூடிய native functions-களையும் கொண்டுள்ளது. ஒரு கோப்பின் உள்ளடக்கத்தை மீட்டெடுக்கும் இப்படிப்பட்ட ஒரு function-ஐ எடுத்துக்காட்டு:
+
+    ```csharp
+    public class NativeFunctions {
+
+        [SKFunction, Description("Retrieve content from local file")]
+        public async Task<string> RetrieveLocalFile(string fileName, int maxSize = 5000)
+        {
+            string content = await File.ReadAllTextAsync(fileName);
+            if (content.Length <= maxSize) return content;
+            return content.Substring(0, maxSize);
+        }
+    }
+    
+    //Import native function
+    string plugInName = "NativeFunction";
+    string functionName = "RetrieveLocalFile";
+
+   //To add the functions to a kernel use the following function
+    kernel.ImportPluginFromType<NativeFunctions>();
+
+    ```
+
+- **Memory**: AI பயன்பாடுகளுக்கான சூழல்நிலை மேலாண்மையைச் சுருக்கி எளிமையாக்குகிறது. நினைவின் கருத்து என்பது LLM கவனிக்க வேண்டிய தகவல்களாகும். இந்தத் தகவலை ஒரு வெக்டர் ஸ்டோரில் சேமிக்கலாம், அது நினைவகத்தில் இருக்கும் ஒரு தரவுத்தளமாகவும் அல்லது வெக்டர் தரவுத்தளமாகவும் இருக்கலாம். இங்கே ஒரு மிகவும் சுலபபடுத்தப்பட்ட காட்சியைக் காணலாம், இதில் *facts* நினைவில் சேர்க்கப்படுகின்றன:
+
+    ```csharp
+    var facts = new Dictionary<string,string>();
+    facts.Add(
+        "Azure Machine Learning; https://learn.microsoft.com/azure/machine-learning/",
+        @"Azure Machine Learning is a cloud service for accelerating and
+        managing the machine learning project lifecycle. Machine learning professionals,
+        data scientists, and engineers can use it in their day-to-day workflows"
+    );
+    
+    facts.Add(
+        "Azure SQL Service; https://learn.microsoft.com/azure/azure-sql/",
+        @"Azure SQL is a family of managed, secure, and intelligent products
+        that use the SQL Server database engine in the Azure cloud."
+    );
+    
+    string memoryCollectionName = "SummarizedAzureDocs";
+    
+    foreach (var fact in facts) {
+        await memoryBuilder.SaveReferenceAsync(
+            collection: memoryCollectionName,
+            description: fact.Key.Split(";")[1].Trim(),
+            text: fact.Value,
+            externalId: fact.Key.Split(";")[2].Trim(),
+            externalSourceName: "Azure Documentation"
+        );
+    }
+    ```
+
+    இத்தகவல்கள் பின்னர் நினைவக சேமிப்பு `SummarizedAzureDocs` இல் சேமிக்கப்படுகின்றன. இது மிகவும் எளிமைப்படுத்தப்பட்ட ஒரு உதாரணம் தான், ஆனாலும் LLM பயன்படுத்துவதற்காக நினைவகத்தில் தகவலை எப்படி சேமிக்க முடியும் என்பதனை நீங்கள் காணலாம்.
+
+So that's the basics of the Semantic Kernel framework, what about the Agent Framework?
+
+## Azure AI Agent Service
+
+Azure AI Agent Service என்பது சமீபத்திய சேர்ப்பாகும், Microsoft Ignite 2024 இல் அறிமுகப்படுத்தப்பட்டது. இது Llama 3, Mistral மற்றும் Cohere போன்ற திறந்த மூல LLM-களை நேரடியாக அழைக்கும் போன்ற நெகிழ்வான மாதிரிகளை பயன்படுத்தி AI ஏஜென்டுகளை உருவாக்கவும் மற்றும் வெளியிடவும் அனுமதிக்கிறது.
+
+Azure AI Agent Service வலுவான நிறுவன பாதுகாப்பு இயந்திரங்கள் மற்றும் தரவுத் சேமிப்பு முறைகளை வழங்குகிறது, அதனால் இது நிறுவன பயன்பாடுகளுக்கு பொருத்தமானதாக இருக்கும்.
+
+இது AutoGen மற்றும் Semantic Kernel போன்ற பல-ஏஜெண்ட் ஒருங்காடல் கட்டமைப்புகளுடன் உடனே செயல்படும் வகையில் வடிவமைக்கப்பட்டுள்ளது.
+
+இந்த சேவை தற்பொழுது Public Preview நிலையில் உள்ளது மற்றும் ஏஜென்டுகளை கட்டமைப்பதற்கு Python மற்றும் C# ஆகியவற்றை ஆதரிக்கிறது.
+
+Using Semantic Kernel Python, we can create an Azure AI Agent with a user-defined plugin:
+
+```python
+import asyncio
+from typing import Annotated
+
+from azure.identity.aio import DefaultAzureCredential
+
+from semantic_kernel.agents import AzureAIAgent, AzureAIAgentSettings, AzureAIAgentThread
+from semantic_kernel.contents import ChatMessageContent
+from semantic_kernel.contents import AuthorRole
+from semantic_kernel.functions import kernel_function
+
+
+# மாதிரிக்கான ஒரு மாதிரி ப்ளகின் வரையறுக்கவும்
+class MenuPlugin:
+    """A sample Menu Plugin used for the concept sample."""
+
+    @kernel_function(description="Provides a list of specials from the menu.")
+    def get_specials(self) -> Annotated[str, "Returns the specials from the menu."]:
+        return """
+        Special Soup: Clam Chowder
+        Special Salad: Cobb Salad
+        Special Drink: Chai Tea
+        """
+
+    @kernel_function(description="Provides the price of the requested menu item.")
+    def get_item_price(
+        self, menu_item: Annotated[str, "The name of the menu item."]
+    ) -> Annotated[str, "Returns the price of the menu item."]:
+        return "$9.99"
+
+
+async def main() -> None:
+    ai_agent_settings = AzureAIAgentSettings.create()
+
+    async with (
+        DefaultAzureCredential() as creds,
+        AzureAIAgent.create_client(
+            credential=creds,
+            conn_str=ai_agent_settings.project_connection_string.get_secret_value(),
+        ) as client,
+    ):
+        # முகவர் வரையறு உருவாக்கவும்
+        agent_definition = await client.agents.create_agent(
+            model=ai_agent_settings.model_deployment_name,
+            name="Host",
+            instructions="Answer questions about the menu.",
+        )
+
+        # வரையறுக்கப்பட்ட கிளையண்ட் மற்றும் முகவர் வரையறுப்பைப் பயன்படுத்தி AzureAI முகவரைக் உருவாக்கவும்
+        agent = AzureAIAgent(
+            client=client,
+            definition=agent_definition,
+            plugins=[MenuPlugin()],
+        )
+
+        # உரையாடலைக் கையாள ஒரு தட்டு உருவாக்கவும்
+        # எந்த தட்டும் வழங்கப்படவில்லையெனில், புதிய தட்டு ஒன்றை உருவாக்கப்படும்
+        # ஆரம்ப பதிலுடன் உருவாக்கி திருப்பி கொடுக்கப்படும்
+        thread: AzureAIAgentThread | None = None
+
+        user_inputs = [
+            "Hello",
+            "What is the special soup?",
+            "How much does that cost?",
+            "Thank you",
+        ]
+
+        try:
+            for user_input in user_inputs:
+                print(f"# User: '{user_input}'")
+                # குறிப்பிடப்பட்ட தட்டுக்கு முகவரைக் அழைக்கவும்
+                response = await agent.get_response(
+                    messages=user_input,
+                    thread_id=thread,
+                )
+                print(f"# {response.name}: {response.content}")
+                thread = response.thread
+        finally:
+            await thread.delete() if thread else None
+            await client.agents.delete_agent(agent.id)
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### Core concepts
+
+Azure AI Agent Service has the following core concepts:
+
+- **Agent**. Azure AI Agent Service integrates with Microsoft Foundry. Within AI Foundry, an AI Agent acts as a "smart" microservice that can be used to answer questions (RAG), perform actions, or completely automate workflows. It achieves this by combining the power of generative AI models with tools that allow it to access and interact with real-world data sources. Here's an example of an agent:
+
+    ```python
+    agent = project_client.agents.create_agent(
+        model="gpt-4o-mini",
+        name="my-agent",
+        instructions="You are helpful agent",
+        tools=code_interpreter.definitions,
+        tool_resources=code_interpreter.resources,
+    )
+    ```
+
+    இந்த உதாரணத்தில், `gpt-4o-mini` மாதிரியை, `my-agent` என்ற பெயரை மற்றும் `You are helpful agent` என்ற அறிவுறுத்தல்களை கொண்ட ஒரு ஏஜெண்ட் உருவாக்கப்படுகிறது. அந்த ஏஜெண்ட் குறியீடு விளக்க பணிகளை செய்ய தேவையான கருவികൾ மற்றும் வளங்களால் சீரமைக்கப்பட்டுள்ளது.
+
+- **Thread and messages**. The thread is another important concept. It represents a conversation or interaction between an agent and a user. Threads can be used to track the progress of a conversation, store context information, and manage the state of the interaction. Here's an example of a thread:
+
+    ```python
+    thread = project_client.agents.create_thread()
+    message = project_client.agents.create_message(
+        thread_id=thread.id,
+        role="user",
+        content="Could you please create a bar chart for the operating profit using the following data and provide the file to me? Company A: $1.2 million, Company B: $2.5 million, Company C: $3.0 million, Company D: $1.8 million",
+    )
+    
+    # Ask the agent to perform work on the thread
+    run = project_client.agents.create_and_process_run(thread_id=thread.id, agent_id=agent.id)
+    
+    # Fetch and log all messages to see the agent's response
+    messages = project_client.agents.list_messages(thread_id=thread.id)
+    print(f"Messages: {messages}")
+    ```
+
+    மேலேயுள்ளக் குறியீட்டில், ஒரு த்ரெட் உருவாக்கப்படுகிறது. பின்னர், அதற்கு ஒரு செய்தி அனுப்பப்படுகிறது. `create_and_process_run` ஐ அழுங்கையில், அந்த த்ரெட்டில் ஏஜெண்டின் பணியைச் செய்ய கேட்டுக் கொள்ளப்படுகிறது. இறுதியில், செய்திகளை பெற்று ஏஜெண்டின் பதிலை பிழைகாண அழிக்கப்படுகிறது. இந்த செய்திகள் பயனர் மற்றும் ஏஜெண்ட் இடையிலான உரையாடலின் முன்னேற்றத்தை காட்டுகின்றன. மேலும், செய்திகள் வெவ்வேறு வகைகளுடையதாக இருக்கலாம் என்பது முக்கியம் — உரை, படம் அல்லது கோப்பு போன்றவை; அதாவது ஏஜெண்டின் עבודה மாதிரியாக ஒரு படம் அல்லது உரை பதிலாக இருப்பது சாத்தியமாகும். ஒரு டெவலப்பராக, பின்னர் நீங்கள் இந்த தகவலைப் பயன்படுத்தி பதில்களை மேலதிக செயலாக்கம் செய்வதோ அல்லது பயனருக்கு வழங்குவதோ செய்யலாம்.
+
+- **Integrates with other AI frameworks**. Azure AI Agent service can interact with other frameworks like AutoGen and Semantic Kernel, which means you can build part of your app in one of these frameworks and for example using the Agent service as an orchestrator or you can build everything in the Agent service.
+
+**Use Cases**: Azure AI Agent Service is designed for enterprise applications that require secure, scalable, and flexible AI agent deployment.
+
+## What's the difference between these frameworks?
+ 
+இவை ஒரே மாதிரியான பன்முகத்தன்மையை கொண்டுள்ளன போலத் தெரிந்தாலும், அவற்றின் வடிவமைப்பு, திறன்கள் மற்றும் இலக்கு பயன்பாட்டு வழிகளின் அடிப்படையில் சில முக்கிய வேறுபாடுகள் உள்ளன:
+ 
+- **AutoGen**: முன்னணி ஆய்வுகளில் பல-ஏஜெண்ட் அமைப்புகள் குறித்து பரிசோதனை செய்யும் ஒரு எக்ஸ்பெரிமெண்டேஷன் கட்டமைப்பு. இது சிக்கலான பல-ஏஜெண்ட் அமைப்புகளை சோதனை செய்தல் மற்றும் தொடக்க மாதிரிகளை உருவாக்குவதற்கு சிறந்த இடம்.
+- **Semantic Kernel**: நிறுவனத்தரமான ஏஜென்ட் செயலிகளை உருவாக்குவதற்கான தயாருக்கு ஏற்ற நூலகம். இது நிகழ்வு அதிரடி, பகிர்ந்த வாய்மை கொண்ட, பல LLM மற்றும் SLM-கள், கருவிகள் மற்றும் ஒற்றை/பல-ஏஜெண்ட் வடிவமைப்பு மாதிரிகளை ஆதரிக்கும்படி கவனம் செலுத்துகிறது.
+- **Azure AI Agent Service**: Azure Foundry இல் ஏஜெண்டுகளுக்கான ஒரு தளம் மற்றும் வெளியீட்டு சேவை. இது Azure Foundry ஆதரிக்கும் சேவைகளோடு இணைப்பு அமைப்பை வழங்குகிறது, உதாரணமாக Azure OpenAI, Azure AI Search, Bing Search மற்றும் குறியீடு நிறைவேற்றுதல் போன்றவை.
+
+Still not sure which one to choose?
+
+### Use Cases
+ 
+நாம் சில பொதுவான பயன்பாட்டு வழக்குகள் மூலம் உதவ முயலலாம்:
+ 
+> Q: I'm experimenting, learning and building proof-of-concept agent applications, and I want to be able to build and experiment quickly
+>
+> A: AutoGen would be a good choice for this scenario, as it focuses on event-driven, distributed agentic applications and supports advanced multi-agent design patterns.
+>
+> Q: What makes AutoGen a better choice than Semantic Kernel and Azure AI Agent Service for this use case?
+>
+> A: AutoGen is specifically designed for event-driven, distributed agentic applications, making it well-suited for automating code generation and data analysis tasks. It provides the necessary tools and capabilities to build complex multi-agent systems efficiently.
+>
+>Q: Sounds like Azure AI Agent Service could work here too, it has tools for code generation and more?
+>
+> A: Yes, Azure AI Agent Service is a platform service for agents and add built-in capabilities for multiple models, Azure AI Search, Bing Search and Azure Functions. It makes it easy to build your agents in the Foundry Portal and deploy them at scale.
+> 
+> Q: I'm still confused just give me one option
+>
+> A: A great choice is to build your application in Semantic Kernel first and then use Azure AI Agent Service to deploy your agent. This approach allows you to easily persist your agents while leveraging the power to build multi-agent systems in Semantic Kernel. Additionally, Semantic Kernel has a connector in AutoGen, making it easy to use both frameworks together.
+ 
+கீழ்க்காணும் அட்டவணையில் முக்கிய வேறுபாடுகளை சுருக்கமாக பார்க்கலாம்:
+
+| Framework | Focus | Core Concepts | Use Cases |
+| --- | --- | --- | --- |
+| AutoGen | நிகழ்வு-மேலோட்டமுடைய, பகிர்ந்துள்ள பல-ஏஜெண்ட் பயன்பாடுகள் | Agents, Personas, Functions, Data | குறியீடு உருவாக்கல், தரவுத் பகுப்பாய்வு பணிகள் |
+| Semantic Kernel | மனித போல உள்ளுரையின்மையை புரிந்துகொள்வதும் உருவாக்கவுமான உரை உள்ளடக்கம் | Agents, Modular Components, Collaboration | இயற்கை மொழி புரிதல், உள்ளடக்கம் உருவாக்குதல் |
+| Azure AI Agent Service | நெகிழ்வான மாதிரிகள், நிறுவனப் பாதுகாப்பு, குறியீடு உருவாக்கம், கருவி அழைப்பு | Modularity, Collaboration, Process Orchestration | பாதுகாப்பான, அளவூட்டக்கூடிய மற்றும் நெகிழ்வு கொண்ட AI ஏஜெண்ட் வெளியீடு |
+
+What's the ideal use case for each of these frameworks?
+
+## Can I integrate my existing Azure ecosystem tools directly, or do I need standalone solutions?
+
+உதயம்: ஆம் — நீங்கள் உங்கள் நிலைமைக்கான Azure சுற்றுச்சூழலின் கருவிகளை நேரடியாக Azure AI Agent Service உடன் ஒருங்கிணைக்கலாம், குறிப்பாக இது மற்ற Azure சேவைகளுடன் தடைமற்ற முறையில் செயல்படுவதற்கு வடிவமைக்கப்பட்டுள்ளது. உதாரணமாக, நீங்கள் Bing, Azure AI Search மற்றும் Azure Functions-ஐ ஒருங்கிணைக்கலாம். Microsoft Foundry உடன் ஆழமான ஒருங்கிணைப்பு கூட உள்ளது.
+
+AutoGen மற்றும் Semantic Kernel க்கு வரும்போது, நீங்கள் Azure சேவைகளை உங்கள் குறியீட்டிலிருந்து அழைக்க வேண்டியதாயிருக்கும். ஒருவேளை Azure SDK-களைப் பயன்படுத்தி உங்கள் ஏஜெண்ட்களிலிருந்து Azure சேவைகள் உடன் தொடர்புகொள்வதற்கும் முடியும். முன்னதாக குறிப்பிடப்பட்டபடி, AutoGen அல்லது Semantic Kernel-இல் உருவாக்கப்பட்ட உங்கள் ஏஜெண்டுகளுக்கான ஒர்கெஸ்ட்ரேட்டராக Azure AI Agent Service-ஐப் பயன்படுத்தினால் Azure சுற்றுச்சூழலுக்கு எளிதாக அணுகலும் பெற முடியும்.
+
+## Sample Codes
+
+- Python: [Agent Framework](./code_samples/02-python-agent-framework.ipynb)
+- .NET: [Agent Framework](./code_samples/02-dotnet-agent-framework.md)
+
+## Got More Questions about AI Agent Frameworks?
+
+Microsoft Foundry Discord-ஐச் சேர்ந்து மற்ற கற்பவர்கள் உள்ளவர்களை சந்திக்கவும், office hours-களைப் பங்கேற்கவும் மற்றும் உங்கள் AI ஏஜெண்ட் சம்பந்தமான கேள்விகளுக்கு பதில்கள் பெறவும் [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) இல் சேரவும்.
+
+## References
+
+- <a href="https://techcommunity.microsoft.com/blog/azure-ai-services-blog/introducing-azure-ai-agent-service/4298357" target="_blank">Azure ஏஜெண்ட் சேவை</a>
+- <a href="https://devblogs.microsoft.com/semantic-kernel/microsofts-agentic-ai-frameworks-autogen-and-semantic-kernel/" target="_blank">Semantic Kernel மற்றும் AutoGen</a>
+- <a href="https://learn.microsoft.com/semantic-kernel/frameworks/agent/?pivots=programming-language-python" target="_blank">Semantic Kernel Python ஏஜெண்ட் கட்டமைப்பு</a>
+- <a href="https://learn.microsoft.com/semantic-kernel/frameworks/agent/?pivots=programming-language-csharp" target="_blank">Semantic Kernel .Net ஏஜெண்ட் கட்டமைப்பு</a>
+- <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Azure AI Agent சேவை</a>
+- <a href="https://techcommunity.microsoft.com/blog/educatordeveloperblog/using-azure-ai-agent-service-with-autogen--semantic-kernel-to-build-a-multi-agen/4363121" target="_blank">AutoGen / Semantic Kernel உடன் Azure AI Agent Service பயன்படுத்தி பல-ஏஜெண்ட் தீர்வை உருவாக்குதல்</a>
+
+## Previous Lesson
+
+[Introduction to AI Agents and Agent Use Cases](../01-intro-to-ai-agents/README.md)
+
+## Next Lesson
+
+[Understanding Agentic Design Patterns](../03-agentic-design-patterns/README.md)
+
+---
+
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+மறுப்பு:
+
+இந்த ஆவணம் AI மொழிபெயர்ப்பு சேவையான [Co-op Translator](https://github.com/Azure/co-op-translator) மூலம் மொழியாக்கம் செய்யப்பட்டதாகும். நாங்கள் துல்லியத்திற்காக முயற்சித்தாலும், தானியங்கி மொழிபெயர்ப்புகளில் பிழைகள் அல்லது தவறான பொருள் உருவாகக்கூடும் என்பதை கவனத்தில் கொள்ளவும். அசல் ஆவணம் அதன் தாய்மொழியில் உள்ள பதிப்பே அதிகாரபூர்வமான ஆதாரமாக கருதப்பட வேண்டும். முக்கியமான தகவல்களுக்கு, தொழில்முறை மனித மொழிபெயர்ப்பை பரிந்துரைக்கிறோம். இந்த மொழிபெயர்ப்பைப் பயன்படுத்துவதால் ஏற்படும் எந்தவொரு தவறான புரிதல் அல்லது தவறான விளக்கத்திற்கும் நாங்கள் பொறுப்பில்லை.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

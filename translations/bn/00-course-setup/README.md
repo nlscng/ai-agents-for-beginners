@@ -1,0 +1,324 @@
+# কোর্স সেটআপ
+
+## পরিচিতি
+
+এই পাঠে এই কোর্সের কোড নমুনাগুলো কিভাবে চালাতে হয় তা আলোচনা করা হবে।
+
+## অন্যান্য শিক্ষার্থীদের সাথে যোগ দিন এবং সাহায্য নিন
+
+আপনার রিপো ক্লোন করার আগে, সেটআপ সম্পর্কে সহায়তা পেতে, কোর্স সম্পর্কিত কোনো প্রশ্ন করতে, বা অন্যান্য শিক্ষার্থীদের সাথে সংযুক্ত হওয়ার জন্য [AI Agents For Beginners Discord channel](https://aka.ms/ai-agents/discord) এ যোগদানের চেষ্টা করুন।
+
+## এই রিপো ক্লোন বা ফর্ক করুন
+
+শুরু করতে, অনুগ্রহ করে GitHub রিপোজিটরি ক্লোন বা ফর্ক করুন। এতে কোর্সের উপকরণগুলোর আপনার নিজের সংস্করণ তৈরি হবে যাতে আপনি কোড চালাতে, পরীক্ষা করতে এবং সামঞ্জস্য করতে পারেন!
+
+এটি <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">fork the repo</a> লিঙ্কে ক্লিক করে করা যেতে পারে
+
+আপনি এখন নিচের লিঙ্কে এই কোর্সটির আপনার নিজের ফর্ক করা সংস্করণ পেয়ে থাকবেন:
+
+![Forked Repo](../../../translated_images/bn/forked-repo.33f27ca1901baa6a.webp)
+
+### শ্যালো ক্লোন (ওয়ার্কশপ / Codespaces এর জন্য সুপারিশকৃত)
+
+  > পুরো রিপোজিটরি পূর্ণ ইতিহাস এবং সব ফাইল সহ ডাউনলোড করলে বড় হতে পারে (~3 GB)। যদি আপনি শুধুমাত্র ওয়ার্কশপে অংশগ্রহণ করছেন বা শুধু কয়েকটি লেসন ফোল্ডারই দরকার, তাহলে একটি শ্যালো ক্লোন (বা একটি স্পার্স ক্লোন) ইতিহাস সংক্ষিপ্ত করে এবং/অথবা ব্লবগুলো স্কিপ করে বেশিরভাগ ডাউনলোড এড়ায়।
+
+#### দ্রুত শ্যালো ক্লোন — ন্যূনতম ইতিহাস, সব ফাইল
+
+নিচের কমান্ডগুলিতে `<your-username>` আপনার ফর্ক URL (অথবা আপনি ইচ্ছা করিলে আপস্ট্রিম URL) দিয়ে প্রতিস্থাপন করুন।
+
+শুধুমাত্র সর্বশেষ কমিট ইতিহাস ক্লোন করতে (ছোট ডাউনলোড):
+
+```bash|powershell
+git clone --depth 1 https://github.com/<your-username>/ai-agents-for-beginners.git
+```
+
+নির্দিষ্ট একটি শাখি ক্লোন করতে:
+
+```bash|powershell
+git clone --depth 1 --branch <branch-name> https://github.com/<your-username>/ai-agents-for-beginners.git
+```
+
+#### আংশিক (স্পার্স) ক্লোন — ন্যূনতম ব্লব + শুধুমাত্র নির্বাচিত ফোল্ডারগুলো
+
+এটি পারশিয়াল ক্লোন এবং sparse-checkout ব্যবহার করে (Git 2.25+ প্রয়োজন এবং পারশিয়াল ক্লোন সমর্থনসহ আধুনিক Git সুপারিশকৃত):
+
+```bash|powershell
+git clone --depth 1 --filter=blob:none --sparse https://github.com/<your-username>/ai-agents-for-beginners.git
+```
+
+রিপো ফোল্ডারে প্রবেশ করুন:
+
+```bash|powershell
+cd ai-agents-for-beginners
+```
+
+তারপর আপনি যে ফোল্ডারগুলো চান সেগুলো উল্লেখ করুন (নিচের উদাহরণে দুইটি ফোল্ডার দেখানো হয়েছে):
+
+```bash|powershell
+git sparse-checkout set 00-course-setup 01-intro-to-ai-agents
+```
+
+ক্লোন এবং ফাইলগুলো যাচাই করার পরে, যদি আপনি কেবল ফাইলগুলোই চান এবং জায়গা মুক্ত করতে চান (গিট ইতিহাস নয়), তাহলে রিপোজিটরির মেটাডাটা মুছে ফেলুন (💀অপ্রত্যাবর্তনীয় — আপনি সব Git কার্যকারিতা হারাবেন: কোনো কমিট, পুল, পুশ বা ইতিহাস অ্যাক্সেস থাকবে না)।
+
+```bash
+# zsh/bash
+rm -rf .git
+```
+
+```powershell
+# পাওয়ারশেল
+Remove-Item -Recurse -Force .git
+```
+
+#### GitHub Codespaces ব্যবহার (স্থানীয় বড় ডাউনলোড এড়াতে সুপারিশকৃত)
+
+- এই রিপো জন্য [GitHub UI](https://github.com/codespaces) মাধ্যমে একটি নতুন Codespace তৈরি করুন।  
+
+- নতুন তৈরি Codespace-এর টার্মিনালে উপরে থাকা শ্যালো/স্পার্স ক্লোন কমান্ডগুলোর কোনো একটিকে চালান যাতে আপনি কেবল প্রয়োজনীয় লেসন ফোল্ডারগুলো Codespace ওয়ার্কস্পেসে আনতে পারেন।
+- ঐচ্ছিক: Codespaces-এ ক্লোন করার পরে অতিরিক্ত স্থান উদ্ধার করতে .git মুছুন (উপরের মুছার কমান্ড দেখুন)।
+- নোট: যদি আপনি রিপো সরাসরি Codespaces-এ খুলতে চান (অতিরিক্ত ক্লোন ছাড়া), মনে রাখবেন Codespaces devcontainer পরিবেশ তৈরি করবে এবং সম্ভবত আপনার প্রয়োজনের চেয়ে বেশি প্রভিশন করতে পারে। একটি নতুন Codespace-এ শ্যালো কপি ক্লোন করলে ডিস্ক ব্যবহারের উপর আপনার বেশি নিয়ন্ত্রণ থাকে।
+
+#### টিপস
+
+- যদি আপনি edit/commit করতে চান তবে সবসময় ক্লোন URL আপনার ফর্ক দিয়ে প্রতিস্থাপন করুন।
+- পরে যদি আপনার আরো ইতিহাস বা ফাইলের দরকার হয়, আপনি সেগুলো fetch করতে পারেন বা sparse-checkout সামঞ্জস্য করে অতিরিক্ত ফোল্ডারগুলো অন্তর্ভুক্ত করতে পারেন।
+
+## কোড চালানো
+
+এই কোর্সে এমন কিছু Jupyter Notebook রয়েছে যেগুলো আপনি হাতে-কলমে AI Agents তৈরির অভিজ্ঞতা পেতে চালাতে পারবেন।
+
+কোড নমুনাগুলো নিম্নের যেকোনো একটি ব্যবহার করে:
+
+**Requires GitHub Account - Free**:
+
+1) Semantic Kernel Agent Framework + GitHub Models Marketplace. Labelled as (semantic-kernel.ipynb)
+2) AutoGen Framework + GitHub Models Marketplace. Labeled as (autogen.ipynb)
+
+**Requires Azure Subscription**:
+3) Azure AI Foundry + Azure AI Agent Service. Labelled as (azureaiagent.ipynb)
+
+আমরা আপনাকে উৎসাহ দিই যে আপনি তিন ধরনের উদাহরণই পরীক্ষা করে দেখুন কোনটা আপনার জন্য সবচেয়ে ভালো কাজ করে।
+
+আপনি যে অপশনই বেছে নেন না কেন, তা নির্ধারণ করবে নিচে কোন কোন সেটআপ ধাপগুলো আপনাকে অনুসরণ করতে হবে:
+
+## প্রয়োজনীয়তা
+
+- Python 3.12+
+  - **NOTE**: যদি আপনার কাছে Python3.12 ইনস্টল না থাকে, নিশ্চিত করুন যে আপনি এটি ইনস্টল করছেন। তারপর requirements.txt ফাইল থেকে সঠিক সংস্করণ ইনস্টল করতে আপনার venv তৈরি করতে python3.12 ব্যবহার করুন।
+  
+    >উদাহরণ
+
+    Python venv ডিরেক্টরি তৈরি করুন:
+
+    ```bash|powershell
+    python -m venv venv
+    ```
+
+    তারপর venv পরিবেশ সক্রিয় করুন:
+
+    ```bash
+    # জেডএসএইচ/বাশ
+    source venv/bin/activate
+    ```
+  
+    ```dos
+    # Command Prompt for Windows
+    venv\Scripts\activate
+    ```
+
+- .NET 10+: .NET ব্যবহার করে নির্দিষ্ট স্যাম্পল কোডগুলো জন্য, নিশ্চিত করুন আপনি [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) বা তার পরের সংস্করণ ইনস্টল করেছেন। তারপর আপনার ইনস্টল করা .NET SDK সংস্করণ পরীক্ষা করুন:
+
+    ```bash|powershell
+    dotnet --list-sdks
+    ```
+
+- একটি GitHub একাউন্ট - GitHub Models Marketplace-এ অ্যাক্সেসের জন্য
+- Azure Subscription - Microsoft Foundry অ্যাক্সেসের জন্য
+- Microsoft Foundry Account - Azure AI Agent Service অ্যাক্সেসের জন্য
+
+আমরা এই রিপোজিটরির রুটে একটি `requirements.txt` ফাইল অন্তর্ভুক্ত করেছি যা কোড নমুনাগুলো চালানোর জন্য প্রয়োজনীয় সব Python প্যাকেজ গুলো ধারণ করে।
+
+আপনি টার্মিনালে রিপোজিটরির রুটে নিচের কমান্ড চালিয়ে এগুলো ইনস্টল করতে পারেন:
+
+```bash|powershell
+pip install -r requirements.txt
+```
+
+কোনো দ্বন্দ্ব ও সমস্যা এড়াতে একটি Python ভার্চুয়াল পরিবেশ তৈরি করার পরামর্শ দেওয়া হচ্ছে।
+
+## VSCode সেটআপ
+
+VSCode-এ নিশ্চিত করুন যে আপনি সঠিক Python সংস্করণ ব্যবহার করছেন।
+
+![ছবি](https://github.com/user-attachments/assets/a85e776c-2edb-4331-ae5b-6bfdfb98ee0e)
+
+## GitHub Models ব্যবহার করে স্যাম্পলগুলোর জন্য সেটআপ
+
+### ধাপ 1: আপনার GitHub Personal Access Token (PAT) সংগ্রহ করুন
+
+এই কোর্স GitHub Models Marketplace ব্যবহার করে, যা আপনাকে Large Language Models (LLMs)-এ বিনামূল্যে অ্যাক্সেস প্রদান করে যেগুলো আপনি AI Agents তৈরির জন্য ব্যবহার করবেন।
+
+GitHub Models ব্যবহার করতে, আপনাকে একটি [GitHub Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) তৈরি করতে হবে।
+
+এটি আপনার GitHub একাউন্টে <a href="https://github.com/settings/personal-access-tokens" target="_blank">Personal Access Tokens settings</a> এ গিয়ে করা যেতে পারে।
+
+টোকেন তৈরি করার সময় অনুগ্রহ করে [Principle of Least Privilege](https://docs.github.com/en/get-started/learning-to-code/storing-your-secrets-safely) অনুসরণ করুন। এর অর্থ হলো আপনি টোকেনটিকে কেবল সেই অনুমতিগুলো দেবেন যা এই কোর্সের কোড নমুনাগুলো চালাতে প্রয়োজন।
+
+1. আপনার স্ক্রিনের বাম পাশে **Developer settings**-এ গিয়ে `Fine-grained tokens` অপশনটি নির্বাচন করুন
+
+   ![Developer settings](../../../translated_images/bn/profile_developer_settings.410a859fe749c755.webp)
+
+   তারপর `Generate new token` নির্বাচন করুন।
+
+   ![Generate Token](../../../translated_images/bn/fga_new_token.1c1a234afe202ab3.webp)
+
+2. আপনার টোকেনের উদ্দেশ্য প্রতিফলিত করা একটি বর্ণনামূলক নাম দিন যাতে পরে এটি সহজে শনাক্ত করা যায়।
+
+    🔐 টোকেন মেয়াদ সম্পর্কিত পরামর্শ
+
+    সুপারিশকৃত মেয়াদ: 30 দিন
+    অধিক সুরক্ষার জন্য, আপনি সংক্ষিপ্ত সময়কালও বেছে নিতে পারেন—যেমন 7 দিন 🛡️
+    এটি একটি ব্যক্তিগত লক্ষ্য নির্ধারণ এবং আপনার শেখার জোয়ার চলাকালীন কোর্স সম্পন্ন করার একটি দুর্দান্ত উপায় 🚀।
+
+    ![Token Name and Expiration](../../../translated_images/bn/token-name-expiry-date.a095fb0de6386864.webp)
+
+3. টোকেনের স্কোপ সীমাবদ্ধ করুন আপনার এই রিপোজিটরির ফর্ক-এ।
+
+    ![Limit scope to fork repository](../../../translated_images/bn/token_repository_limit.924ade5e11d9d8bb.webp)
+
+4. টোকেনের অনুমতিগুলো সীমাবদ্ধ করুন: **Permissions** এর অধীনে **Account** ট্যাব ক্লিক করুন, এবং "+ Add permissions" বোতামে ক্লিক করুন। একটি ড্রপডাউন প্রদর্শিত হবে। অনুগ্রহ করে **Models** খুঁজুন এবং এর জন্য চেকবক্সটি চিহ্নিত করুন।
+
+    ![Add Models Permission](../../../translated_images/bn/add_models_permissions.c0c44ed8b40fc143.webp)
+
+5. টোকেন তৈরি করার আগে প্রয়োজনীয় অনুমতিগুলো যাচাই করুন। ![Verify Permissions](../../../translated_images/bn/verify_permissions.06bd9e43987a8b21.webp)
+
+6. টোকেন তৈরি করার আগে নিশ্চিত করুন আপনি এটি নিরাপদ স্থানে (যেমন পাসওয়ার্ড ম্যানেজার ভল্ট) সংরক্ষণ করার জন্য প্রস্তুত, কারণ এটি তৈরি করার পরে আর পুনরায় দেখানো হবে না। ![Store Token Securely](../../../translated_images/bn/store_token_securely.08ee2274c6ad6caf.webp)
+
+এখনই আপনি সদ্য তৈরি করা আপনার টোকেন কপি করুন। এরপর এটি আপনি এই কোর্সে অন্তর্ভুক্ত `.env` ফাইলে যোগ করবেন।
+
+### ধাপ 2: আপনার `.env` ফাইল তৈরি করুন
+
+আপনার `.env` ফাইল তৈরি করতে টার্মিনালে নিম্নের কমান্ড চালান।
+
+```bash
+# zsh/bash
+cp .env.example .env
+```
+
+```powershell
+# পাওয়ারশেল
+Copy-Item .env.example .env
+```
+
+এটি example ফাইলটি কপি করে আপনার ডিরেক্টরিতে একটি `.env` তৈরি করবে যেখানে আপনি পরিবেশ ভেরিয়েবলগুলোর মান পূরণ করবেন।
+
+আপনার টোকেন কপি করার পরে, আপনার পছন্দের টেক্সট এডিটরে `.env` ফাইলটি খুলুন এবং `GITHUB_TOKEN` ফিল্ডে আপনার টোকেনটি পেস্ট করুন।
+
+![GitHub Token Field](../../../translated_images/bn/github_token_field.20491ed3224b5f4a.webp)
+
+এখন আপনি এই কোর্সের কোড নমুনাগুলো চালাতে সক্ষম হওয়া উচিত।
+
+## Microsoft Foundry এবং Azure AI Agent Service ব্যবহার করে স্যাম্পলগুলোর জন্য সেটআপ
+
+### ধাপ 1: আপনার Azure প্রকল্পের Endpoint সংগ্রহ করুন
+
+
+Azure AI Foundry-তে একটি হাব এবং প্রকল্প তৈরি করার ধাপগুলো এখানে অনুসরণ করুন: [Hub resources overview](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/ai-resources)
+
+
+প্রকল্প তৈরি করার পরে, আপনাকে আপনার প্রকল্পের জন্য সংযোগ স্ট্রিং সংগ্রহ করতে হবে।
+
+এটি Microsoft Foundry পোর্টালে আপনার প্রকল্পের **Overview** পৃষ্ঠায় গিয়ে করা যাবে।
+
+![Project Connection String](../../../translated_images/bn/project-endpoint.8cf04c9975bbfbf1.webp)
+
+### ধাপ 2: আপনার `.env` ফাইল তৈরি করুন
+
+আপনার `.env` ফাইল তৈরি করতে টার্মিনালে নিম্নের কমান্ড চালান।
+
+```bash
+# জেডএসএইচ/বাশ
+cp .env.example .env
+```
+
+```powershell
+# পাওয়ারশেল
+Copy-Item .env.example .env
+```
+
+এটি example ফাইলটি কপি করে আপনার ডিরেক্টরিতে একটি `.env` তৈরি করবে যেখানে আপনি পরিবেশ ভেরিয়েবলগুলোর মান পূরণ করবেন।
+
+আপনার টোকেন কপি করার পরে, আপনার পছন্দের টেক্সট এডিটরে `.env` ফাইলটি খুলুন এবং `PROJECT_ENDPOINT` ফিল্ডে আপনার টোকেনটি পেস্ট করুন।
+
+### ধাপ 3: Azure-এ সাইন ইন করুন
+
+নিরাপত্তার সর্বোত্তম অনুশীলন হিসেবে, আমরা Microsoft Entra ID সহ Azure OpenAI-তে authentication করার জন্য [keyless authentication](https://learn.microsoft.com/azure/developer/ai/keyless-connections?tabs=csharp%2Cazure-cli?WT.mc_id=academic-105485-koreyst) ব্যবহার করব। 
+
+এবার টার্মিনাল খুলুন এবং আপনার Azure একাউন্টে সাইন ইন করতে `az login --use-device-code` চালান।
+
+লগইন করার পরে, টার্মিনালে আপনার সাবস্ক্রিপশন নির্বাচন করুন।
+
+## অতিরিক্ত পরিবেশ ভেরিয়েবল - Azure Search এবং Azure OpenAI 
+
+Agentic RAG পাঠের জন্য - লেসন 5 - এমন কিছু স্যাম্পল আছে যেগুলো Azure Search এবং Azure OpenAI ব্যবহার করে।
+
+আপনি যদি এই স্যাম্পলগুলো চালাতে চান, তাহলে আপনাকে `.env` ফাইলে নিচের পরিবেশ ভেরিয়েবলগুলো যোগ করতে হবে:
+
+### Overview Page (Project)
+
+- `AZURE_SUBSCRIPTION_ID` - আপনার প্রকল্পের **Overview** পৃষ্ঠায় **Project details** চেক করুন।
+
+- `AZURE_AI_PROJECT_NAME` - আপনার প্রকল্পের **Overview** পৃষ্ঠার শীর্ষে দেখুন।
+
+- `AZURE_OPENAI_SERVICE` - **Overview** পৃষ্ঠায় **Included capabilities** ট্যাবে **Azure OpenAI Service**-এ এটি খুঁজে পাবেন।
+
+### Management Center
+
+- `AZURE_OPENAI_RESOURCE_GROUP` - **Management Center**-এর **Overview** পৃষ্ঠায় **Project properties** এ যান।
+
+- `GLOBAL_LLM_SERVICE` - **Connected resources** এর অধীনে **Azure AI Services** সংযোগের নাম খুঁজে বের করুন। যদি তালিকাভুক্ত না থাকে, আপনার রিসোর্স গ্রুপে Azure পোর্টালে AI Services রিসোর্স নামটি চেক করুন।
+
+### Models + Endpoints Page
+
+- `AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME` - আপনার এম্বেডিং মডেলটি (যেমন, `text-embedding-ada-002`) নির্বাচন করুন এবং মডেল বিবরণ থেকে **Deployment name** নোট করুন।
+
+- `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` - আপনার চ্যাট মডেলটি (যেমন, `gpt-4o-mini`) নির্বাচন করুন এবং মডেল বিবরণ থেকে **Deployment name** নোট করুন।
+
+### Azure Portal
+
+- `AZURE_OPENAI_ENDPOINT` - **Azure AI services** খুঁজে, তাতে ক্লিক করুন, তারপর **Resource Management**, **Keys and Endpoint** এ যান, "Azure OpenAI endpoints" পর্যন্ত স্ক্রল করুন, এবং "Language APIs" বলছে এমন אחדটি কপি করুন।
+
+- `AZURE_OPENAI_API_KEY` - একই স্ক্রীন থেকে KEY 1 বা KEY 2 কপি করুন।
+
+- `AZURE_SEARCH_SERVICE_ENDPOINT` - আপনার **Azure AI Search** রিসোর্সটি খুঁজুন, সেটিতে ক্লিক করুন এবং **Overview** দেখুন।
+
+- `AZURE_SEARCH_API_KEY` - তারপর **Settings** এ গিয়ে **Keys** থেকে প্রাথমিক বা সেকেন্ডারি অ্যাডমিন কী কপি করুন।
+
+### External Webpage
+
+- `AZURE_OPENAI_API_VERSION` - [API version lifecycle](https://learn.microsoft.com/azure/ai-services/openai/api-version-deprecation#latest-ga-api-release) পৃষ্ঠাটি **Latest GA API release** অংশে দেখুন।
+
+### keyless authentication সেটআপ করা
+
+আপনার credentials হার্ডকোড করার পরিবর্তে, আমরা Azure OpenAI-এর সাথে একটি keyless সংযোগ ব্যবহার করব। এর জন্য আমরা `DefaultAzureCredential` ইমপোর্ট করব এবং পরে credential পেতে `DefaultAzureCredential` ফাংশন কল করব।
+
+```python
+# পাইথন
+from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
+```
+
+## কোথাও আটকে গেছেন?
+If you have any issues running this setup, hop into our <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI কমিউনিটি Discord</a> or <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">একটি ইস্যু তৈরি করুন</a>.
+
+## পরবর্তী পাঠ
+
+আপনি এখন এই কোর্সের কোড চালানোর জন্য প্রস্তুত। AI এজেন্টদের জগৎ সম্পর্কে আরও শেখার জন্য শুভকামনা! 
+
+[AI এজেন্ট এবং এজেন্ট ব্যবহারের কেসগুলোর পরিচিতি](../01-intro-to-ai-agents/README.md)
+
+---
+
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+অস্বীকৃতি:
+এই নথিটি AI অনুবাদ সেবা [Co-op Translator](https://github.com/Azure/co-op-translator) ব্যবহার করে অনূদিত হয়েছে। যদিও আমরা সঠিকতার প্রতি যত্নশীল, অনুগ্রহ করে জানুন যে স্বয়ংক্রিয় অনুবাদে ত্রুটি বা অসংগততা থাকতে পারে। মূল নথিটিকে তার নিজ ভাষায় প্রামাণিক উৎস হিসেবে বিবেচনা করা উচিত। গুরুত্বপুর্ণ তথ্যের জন্য পেশাদার মানব অনুবাদ গ্রহণ করার পরামর্শ দেওয়া হয়। এই অনুবাদের ব্যবহারে উদ্ভূত কোনো ভুল বোঝাবুঝি বা ভুল ব্যাখ্যার জন্য আমরা দায়ী থাকব না।
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

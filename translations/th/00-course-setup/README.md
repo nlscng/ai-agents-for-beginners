@@ -1,0 +1,322 @@
+# การตั้งค่าหลักสูตร
+
+## บทนำ
+
+บทเรียนนี้จะครอบคลุมวิธีการรันตัวอย่างโค้ดของหลักสูตรนี้
+
+## เข้าร่วมกับผู้เรียนคนอื่น ๆ และขอความช่วยเหลือ
+
+ก่อนที่คุณจะเริ่มโคลนรีโปของคุณ เข้าร่วมที่ [ช่อง Discord สำหรับ AI Agents สำหรับผู้เริ่มต้น](https://aka.ms/ai-agents/discord) เพื่อขอความช่วยเหลือเกี่ยวกับการตั้งค่า, ถามคำถามเกี่ยวกับหลักสูตร หรือเชื่อมต่อกับผู้เรียนคนอื่น ๆ
+
+## โคลนหรือฟอร์กรีโปนี้
+
+เพื่อเริ่มต้น กรุณาโคลนหรือฟอร์ก GitHub Repository นี้ นี่จะทำให้คุณมีเวอร์ชันของวัสดุหลักสูตรของคุณเอง เพื่อให้คุณสามารถรัน ทดสอบ และปรับแต่งโค้ดได้!
+
+คุณสามารถทำได้โดยการคลิกที่ลิงก์ <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">ฟอร์กรีโป</a>
+
+ตอนนี้คุณควรมีเวอร์ชันรีโปที่ฟอร์กไว้ของหลักสูตรนี้ในลิงก์ดังต่อไปนี้:
+
+![Forked Repo](../../../translated_images/th/forked-repo.33f27ca1901baa6a.webp)
+
+### โคลนนิ่งแบบตื้น (แนะนำสำหรับเวิร์กช็อป / Codespaces)
+
+ > รีโปเต็มอาจมีขนาดใหญ่ (~3 GB) เมื่อคุณดาวน์โหลดประวัติทั้งหมดและทุกไฟล์ หากคุณเข้าร่วมแค่เวิร์กช็อปหรือจำเป็นแค่บางโฟลเดอร์บทเรียน โคลนแบบตื้น (หรือโคลนแบบกระจัดกระจาย) จะช่วยลดขนาดการดาวน์โหลดโดยการตัดประวัติและ/หรือข้ามบล็อบส่วนใหญ่
+
+#### โคลนแบบตื้นอย่างรวดเร็ว — ประวัติน้อยที่สุด, ครบทุกไฟล์
+
+แทนที่ `<your-username>` ในคำสั่งด้านล่างด้วย URL ฟอร์กของคุณ (หรือ URL ต้นทางหากคุณต้องการ)
+
+เพื่อโคลนแค่ประวัติคอมมิตล่าสุด (ดาวน์โหลดขนาดเล็ก):
+
+```bash|powershell
+git clone --depth 1 https://github.com/<your-username>/ai-agents-for-beginners.git
+```
+
+เพื่อโคลนเฉพาะสาขา:
+
+```bash|powershell
+git clone --depth 1 --branch <branch-name> https://github.com/<your-username>/ai-agents-for-beginners.git
+```
+
+#### โคลนบางส่วน (แบบกระจัดกระจาย) — บล็อบน้อยที่สุด + เฉพาะโฟลเดอร์ที่เลือก
+
+นี่ใช้โคลนบางส่วนและ sparse-checkout (ต้องใช้ Git 2.25+ และแนะนำให้ใช้ Git รุ่นใหม่ที่รองรับโคลนบางส่วน):
+
+```bash|powershell
+git clone --depth 1 --filter=blob:none --sparse https://github.com/<your-username>/ai-agents-for-beginners.git
+```
+
+เข้าไปในโฟลเดอร์รีโป:
+
+```bash|powershell
+cd ai-agents-for-beginners
+```
+
+จากนั้นระบุว่าอยากได้โฟลเดอร์ไหนบ้าง (ตัวอย่างข้างล่างแสดงสองโฟลเดอร์):
+
+```bash|powershell
+git sparse-checkout set 00-course-setup 01-intro-to-ai-agents
+```
+
+หลังจากโคลนและตรวจสอบไฟล์แล้ว หากคุณต้องการแค่ไฟล์และอยากคืนพื้นที่ (ไม่มีประวัติ Git) กรุณาลบเมทาดาทารีโป (💀ไม่สามารถย้อนกลับ — คุณจะสูญเสียฟังก์ชันของ Git ทั้งหมด: ไม่มีคอมมิต, ดึง, ผลัก หรือเข้าถึงประวัติ)
+
+```bash
+# zsh/bash
+rm -rf .git
+```
+
+```powershell
+# PowerShell
+Remove-Item -Recurse -Force .git
+```
+
+#### การใช้ GitHub Codespaces (แนะนำเพื่อหลีกเลี่ยงการดาวน์โหลดขนาดใหญ่ในเครื่อง)
+
+- สร้าง Codespace ใหม่สำหรับรีโปนี้ผ่าน [GitHub UI](https://github.com/codespaces)  
+
+- ในเทอร์มินัลของ Codespace ที่สร้างใหม่ รันคำสั่งโคลนแบบตื้น/กระจัดกระจายด้านบนเพื่อดึงแค่โฟลเดอร์บทเรียนที่คุณต้องการเข้าไปใน workspace ของ Codespace
+- ตัวเลือกเสริม: หลังโคลนใน Codespaces ให้ลบ .git เพื่อคืนพื้นที่เพิ่มเติม (ดูคำสั่งลบด้านบน)
+- หมายเหตุ: หากคุณต้องการเปิดรีโปโดยตรงใน Codespaces (โดยไม่โคลนเพิ่ม) โปรดทราบว่า Codespaces จะสร้างสภาพแวดล้อม devcontainer และบางทีอาจเตรียมสิ่งที่เกินความต้องการของคุณ การโคลนแบบตื้นใน Codespace ใหม่จะควบคุมการใช้ดิสก์ได้ดีกว่า
+
+#### เคล็ดลับ
+
+- แทนที่ URL โคลนด้วย URL ฟอร์กของคุณเสมอ หากคุณต้องการแก้ไข/คอมมิต
+- หากคุณต้องการประวัติหรือไฟล์มากขึ้นภายหลัง คุณสามารถดึงข้อมูลหรือตั้งค่า sparse-checkout เพื่อรวมโฟลเดอร์เพิ่มเติมได้
+
+## การรันโค้ด
+
+หลักสูตรนี้มีชุด Jupyter Notebooks ที่คุณสามารถรันเพื่อรับประสบการณ์ปฏิบัติจริงในการสร้าง AI Agents
+
+ตัวอย่างโค้ดใช้ได้แบบใดแบบหนึ่ง:
+
+**ต้องมีบัญชี GitHub - ฟรี**:
+
+1) Semantic Kernel Agent Framework + GitHub Models Marketplace ระบุในชื่อไฟล์ว่า (semantic-kernel.ipynb)  
+2) AutoGen Framework + GitHub Models Marketplace ระบุในชื่อไฟล์ว่า (autogen.ipynb)
+
+**ต้องมี Azure Subscription**:  
+3) Azure AI Foundry + Azure AI Agent Service ระบุในชื่อไฟล์ว่า (azureaiagent.ipynb)
+
+เราแนะนำให้คุณลองตัวอย่างทั้งสามประเภทเพื่อดูว่าแบบไหนเหมาะกับคุณที่สุด
+
+ไม่ว่าจะเลือกแบบไหน จะกำหนดขั้นตอนการตั้งค่าที่คุณต้องทำตามด้านล่าง
+
+## ความต้องการ
+
+- Python 3.12+  
+  - **หมายเหตุ**: หากยังไม่มี Python 3.12 ติดตั้ง ให้ติดตั้งก่อน จากนั้นสร้าง venv โดยใช้ python3.12 เพื่อให้ติดตั้งเวอร์ชันที่ถูกต้องจากไฟล์ requirements.txt
+
+    >ตัวอย่าง
+
+    สร้างไดเรกทอรี Python venv:
+
+    ```bash|powershell
+    python -m venv venv
+    ```
+
+    แล้วเปิดใช้งานสภาพแวดล้อม venv สำหรับ:
+
+    ```bash
+    # zsh/bash
+    source venv/bin/activate
+    ```
+  
+    ```dos
+    # Command Prompt for Windows
+    venv\Scripts\activate
+    ```
+
+- .NET 10+: สำหรับตัวอย่างโค้ดที่ใช้ .NET ให้ติดตั้ง [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) หรือเวอร์ชันที่ใหม่กว่า จากนั้นตรวจสอบเวอร์ชัน .NET SDK ที่ติดตั้ง:
+
+    ```bash|powershell
+    dotnet --list-sdks
+    ```
+
+- บัญชี GitHub - เพื่อเข้าถึง GitHub Models Marketplace
+- Azure Subscription - เพื่อเข้าถึง Microsoft Foundry
+- บัญชี Microsoft Foundry - เพื่อเข้าถึง Azure AI Agent Service
+
+ในรีโปนี้มีไฟล์ `requirements.txt` รวมไว้ในโฟลเดอร์ราก ซึ่งมีแพ็กเกจ Python ที่ต้องติดตั้งสำหรับรันตัวอย่างโค้ดทั้งหมด
+
+คุณสามารถติดตั้งแพ็กเกจเหล่านี้โดยรันคำสั่งต่อไปนี้ในเทอร์มินัลที่อยู่ในโฟลเดอร์รากของรีโป:
+
+```bash|powershell
+pip install -r requirements.txt
+```
+
+เราแนะนำให้สร้าง Python virtual environment เพื่อลดความขัดแย้งและปัญหาที่อาจเกิดขึ้น
+
+## ตั้งค่า VSCode
+
+ตรวจสอบให้แน่ใจว่าคุณใช้เวอร์ชัน Python ที่ถูกต้องใน VSCode
+
+![image](https://github.com/user-attachments/assets/a85e776c-2edb-4331-ae5b-6bfdfb98ee0e)
+
+## การตั้งค่าสำหรับตัวอย่างที่ใช้ GitHub Models
+
+### ขั้นตอนที่ 1: ดึง GitHub Personal Access Token (PAT) ของคุณ
+
+หลักสูตรนี้ใช้ GitHub Models Marketplace ซึ่งให้การเข้าถึงโมเดลภาษาใหญ่ (LLMs) ฟรีที่คุณจะใช้สร้าง AI Agents
+
+เพื่อใช้ GitHub Models คุณจะต้องสร้าง [GitHub Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
+
+สามารถทำได้โดยไปที่ <a href="https://github.com/settings/personal-access-tokens" target="_blank">การตั้งค่า Personal Access Tokens</a> ในบัญชี GitHub ของคุณ
+
+กรุณาปฏิบัติตาม [หลักการ Least Privilege](https://docs.github.com/en/get-started/learning-to-code/storing-your-secrets-safely) เมื่อตั้งค่าโทเคน นั่นหมายความว่าคุณควรให้โทเคนมีสิทธิ์ในระดับที่จำเป็นสำหรับรันตัวอย่างโค้ดในหลักสูตรนี้เท่านั้น
+
+1. เลือกตัวเลือก `Fine-grained tokens` ที่ทางซ้ายของหน้าจอ โดยไปที่ **Developer settings**
+
+   ![Developer settings](../../../translated_images/th/profile_developer_settings.410a859fe749c755.webp)
+
+   จากนั้นเลือก `Generate new token`
+
+   ![Generate Token](../../../translated_images/th/fga_new_token.1c1a234afe202ab3.webp)
+
+2. กรอกชื่อที่บรรยายถึงจุดประสงค์ของโทเคน เพื่อให้ง่ายต่อการจดจำในภายหลัง
+
+    🔐 คำแนะนำเกี่ยวกับระยะเวลาของโทเคน
+
+    ระยะเวลาที่แนะนำ: 30 วัน  
+    หากต้องการความปลอดภัยเพิ่มขึ้น คุณสามารถเลือกช่วงเวลาที่สั้นกว่า เช่น 7 วัน 🛡️  
+    นี่เป็นวิธีที่ดีในการตั้งเป้าหมายส่วนตัวและทำหลักสูตรให้เสร็จในช่วงเวลาที่คุณมีแรงจูงใจสูง 🚀
+
+    ![Token Name and Expiration](../../../translated_images/th/token-name-expiry-date.a095fb0de6386864.webp)
+
+3. จำกัดขอบเขตการใช้งานของโทเคนให้เฉพาะฟอร์กของรีโปนี้
+
+    ![Limit scope to fork repository](../../../translated_images/th/token_repository_limit.924ade5e11d9d8bb.webp)
+
+4. จำกัดสิทธิ์โทเคน: ใน **Permissions** คลิกแท็บ **Account** แล้วกด "+ Add permissions" จะปรากฏเมนู เลือกค้นหา **Models** และทำเครื่องหมายที่ช่อง
+
+    ![Add Models Permission](../../../translated_images/th/add_models_permissions.c0c44ed8b40fc143.webp)
+
+5. ตรวจสอบสิทธิ์ที่จำเป็นก่อนสร้างโทเคน ![Verify Permissions](../../../translated_images/th/verify_permissions.06bd9e43987a8b21.webp)
+
+6. ก่อนสร้างโทเคน ให้เตรียมเก็บโทเคนไว้ในที่ปลอดภัยเช่นตัวจัดการรหัสผ่าน เพราะโทเคนจะไม่แสดงอีกหลังจากสร้างแล้ว ![Store Token Securely](../../../translated_images/th/store_token_securely.08ee2274c6ad6caf.webp)
+
+คัดลอกโทเคนใหม่ที่คุณสร้างขึ้นมา ตอนนี้คุณจะเพิ่มเข้าไปในไฟล์ `.env` ที่รวมอยู่ในหลักสูตรนี้
+
+### ขั้นตอนที่ 2: สร้างไฟล์ `.env` ของคุณ
+
+เพื่อสร้างไฟล์ `.env` ให้รันคำสั่งนี้ในเทอร์มินัลของคุณ
+
+```bash
+# zsh/bash
+cp .env.example .env
+```
+
+```powershell
+# PowerShell
+Copy-Item .env.example .env
+```
+
+จะเป็นการคัดลอกไฟล์ตัวอย่างและสร้างไฟล์ `.env` ในไดเรกทอรีของคุณ ซึ่งคุณจะต้องกรอกค่าของตัวแปรสภาพแวดล้อมไว้
+
+เมื่อคุณคัดลอกโทเคนแล้ว เปิดไฟล์ `.env` ในโปรแกรมแก้ไขข้อความที่คุณชื่นชอบ และวางโทเคนของคุณในช่อง `GITHUB_TOKEN`
+
+![GitHub Token Field](../../../translated_images/th/github_token_field.20491ed3224b5f4a.webp)
+
+ตอนนี้คุณควรจะสามารถรันตัวอย่างโค้ดของหลักสูตรนี้ได้แล้ว
+
+## การตั้งค่าสำหรับตัวอย่างที่ใช้ Microsoft Foundry และ Azure AI Agent Service
+
+### ขั้นตอนที่ 1: ดึง Project Endpoint ของ Azure ของคุณ
+
+ทำตามขั้นตอนการสร้าง hub และ project ใน Azure AI Foundry ที่นี่: [Hub resources overview](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/ai-resources)
+
+เมื่อคุณสร้างโปรเจ็กต์เสร็จแล้ว คุณจะต้องดึง connection string สำหรับโปรเจ็กต์ของคุณ
+
+สามารถทำได้โดยไปที่หน้า **Overview** ของโปรเจ็กต์ในพอร์ทัล Microsoft Foundry
+
+![Project Connection String](../../../translated_images/th/project-endpoint.8cf04c9975bbfbf1.webp)
+
+### ขั้นตอนที่ 2: สร้างไฟล์ `.env` ของคุณ
+
+เพื่อสร้างไฟล์ `.env` ให้รันคำสั่งนี้ในเทอร์มินัลของคุณ
+
+```bash
+# zsh/bash
+cp .env.example .env
+```
+
+```powershell
+# PowerShell
+Copy-Item .env.example .env
+```
+
+จะเป็นการคัดลอกไฟล์ตัวอย่างและสร้างไฟล์ `.env` ในไดเรกทอรีของคุณ ซึ่งคุณจะต้องกรอกค่าของตัวแปรสภาพแวดล้อมไว้
+
+เมื่อคุณคัดลอกค่าแล้ว เปิดไฟล์ `.env` ในโปรแกรมแก้ไขข้อความที่คุณชื่นชอบ และวางค่าในช่อง `PROJECT_ENDPOINT`
+
+### ขั้นตอนที่ 3: ลงชื่อเข้าใช้ Azure
+
+ตามแนวทางปฏิบัติด้านความปลอดภัย เราจะใช้ [การยืนยันตัวตนแบบไม่ใช้คีย์](https://learn.microsoft.com/azure/developer/ai/keyless-connections?tabs=csharp%2Cazure-cli?WT.mc_id=academic-105485-koreyst) เพื่อเข้าสู่ระบบ Azure OpenAI ด้วย Microsoft Entra ID
+
+เปิดเทอร์มินัลแล้วรันคำสั่ง `az login --use-device-code` เพื่อเข้าสู่บัญชี Azure ของคุณ
+
+หลังจากเข้าสู่ระบบแล้ว ให้เลือก subscription ในเทอร์มินัล
+
+## ตัวแปรสภาพแวดล้อมเพิ่มเติม - Azure Search และ Azure OpenAI
+
+สำหรับบทเรียน Agentic RAG - บทเรียน 5 - มีตัวอย่างที่ใช้ Azure Search และ Azure OpenAI
+
+หากคุณต้องการรันตัวอย่างเหล่านี้ คุณจะต้องเพิ่มตัวแปรสภาพแวดล้อมต่อไปนี้ในไฟล์ `.env` ของคุณ:
+
+### หน้า Overview (โปรเจ็กต์)
+
+- `AZURE_SUBSCRIPTION_ID` - ตรวจสอบ **รายละเอียดโปรเจ็กต์** บนหน้า **Overview** ของโปรเจ็กต์คุณ
+
+- `AZURE_AI_PROJECT_NAME` - ดูที่ด้านบนของหน้า **Overview** สำหรับโปรเจ็กต์ของคุณ
+
+- `AZURE_OPENAI_SERVICE` - พบได้ในแท็บ **ความสามารถรวม** สำหรับ **Azure OpenAI Service** บนหน้า **Overview**
+
+### ศูนย์จัดการ
+
+- `AZURE_OPENAI_RESOURCE_GROUP` - ไปที่ **คุณสมบัติของโปรเจ็กต์** บนหน้า **Overview** ของ **ศูนย์จัดการ**
+
+- `GLOBAL_LLM_SERVICE` - ในหัวข้อ **Connected resources** ค้นหาชื่อการเชื่อมต่อ **Azure AI Services** หากไม่ปรากฏ ให้ตรวจสอบใน **Azure portal** ภายใต้ resource group สำหรับชื่อบริการ AI Services
+
+### หน้า Models + Endpoints
+
+- `AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME` - เลือกโมเดล embedding ของคุณ (เช่น `text-embedding-ada-002`) และจดชื่อ **Deployment name** จากรายละเอียดของโมเดล
+
+- `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` - เลือกโมเดลแชท (เช่น `gpt-4o-mini`) และจดชื่อ **Deployment name** จากรายละเอียดของโมเดล
+
+### Azure Portal
+
+- `AZURE_OPENAI_ENDPOINT` - มองหา **Azure AI services** คลิกเข้าไป แล้วไปที่ **Resource Management**, **Keys and Endpoint** เลื่อนลงไปที่ "Azure OpenAI endpoints" แล้วคัดลอกอันที่ระบุว่า "Language APIs"
+
+- `AZURE_OPENAI_API_KEY` - จากหน้าจอเดียวกัน คัดลอก KEY 1 หรือ KEY 2
+
+- `AZURE_SEARCH_SERVICE_ENDPOINT` - ค้นหาแหล่งข้อมูล **Azure AI Search** ของคุณ คลิกแล้วดูที่ **Overview**
+
+- `AZURE_SEARCH_API_KEY` - ไปที่ **Settings** จากนั้น **Keys** เพื่อคัดลอก admin key หลักหรือสำรอง
+
+### เว็บเพจภายนอก
+
+- `AZURE_OPENAI_API_VERSION` - เยี่ยมชมหน้า [API version lifecycle](https://learn.microsoft.com/azure/ai-services/openai/api-version-deprecation#latest-ga-api-release) ภายใต้ **Latest GA API release**
+
+### ตั้งค่าการยืนยันตัวตนแบบไม่ใช้คีย์
+
+แทนที่จะระบุข้อมูลรับรองในโค้ดโดยตรง เราจะใช้การเชื่อมต่อแบบไม่ใช้คีย์กับ Azure OpenAI โดยจะนำเข้า `DefaultAzureCredential` และเรียกใช้ฟังก์ชันนี้เพื่อรับข้อมูลรับรอง
+
+```python
+# ไพธอน
+from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
+```
+
+## หากติดขัดที่ใด?
+หากคุณประสบปัญหาใด ๆ ในการใช้งานการตั้งค่านี้ ให้เข้าร่วมใน <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Community Discord</a> หรือ <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">สร้างปัญหา</a>
+
+## บทเรียนต่อไป
+
+ตอนนี้คุณพร้อมที่จะรันโค้ดสำหรับหลักสูตรนี้แล้ว ขอให้สนุกกับการเรียนรู้เพิ่มเติมเกี่ยวกับโลกของ AI Agents!
+
+[Introduction to AI Agents and Agent Use Cases](../01-intro-to-ai-agents/README.md)
+
+---
+
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**ข้อจำกัดความรับผิดชอบ**:  
+เอกสารฉบับนี้ได้ถูกแปลโดยใช้บริการแปลภาษา AI [Co-op Translator](https://github.com/Azure/co-op-translator) แม้ว่าเราจะพยายามให้ความถูกต้องสูงสุด โปรดทราบว่าการแปลอัตโนมัติอาจมีข้อผิดพลาดหรือความไม่ถูกต้องได้ เอกสารต้นฉบับในภาษาต้นทางถือเป็นแหล่งข้อมูลที่เชื่อถือได้ สำหรับข้อมูลที่สำคัญ ควรใช้บริการแปลภาษาโดยมนุษย์ผู้เชี่ยวชาญ เราไม่รับผิดชอบต่อความเข้าใจผิดหรือการตีความที่ผิดพลาดใด ๆ ที่เกิดขึ้นจากการใช้การแปลนี้
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

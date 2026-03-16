@@ -1,0 +1,322 @@
+# ਕੋਰਸ ਸੈਟਅੱਪ
+
+## ਪਰਿਚਯ
+
+ਇਸ ਪਾਠ ਵਿੱਚ ਇਸ ਕੋਰਸ ਦੇ ਕੋਡ ਨਮੂਨਿਆਂ ਨੂੰ ਚਲਾਉਣ ਬਾਰੇ ਦੱਸਿਆ ਜਾਵੇਗਾ।
+
+## ਹੋਰ ਸਿੱਖਣ ਵਾਲਿਆਂ ਨਾਲ ਜੁੜੋ ਅਤੇ ਸਹਾਇਤਾ ਪ੍ਰਾਪਤ ਕਰੋ
+
+ਆਪਣਾ ਰੇਪੋ ਕਲੋਨ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ, ਕਿਸੇ ਵੀ ਸੈਟਅੱਪ ਸਹਾਇਤਾ ਲਈ, ਕੋਰਸ ਸਬੰਧੀ ਕਿਸੇ ਵੀ ਪ੍ਰਸ਼ਨ ਲਈ, ਜਾਂ ਹੋਰ ਸਿੱਖਣ ਵਾਲਿਆਂ ਨਾਲ ਜੁੜਨ ਲਈ [AI Agents For Beginners Discord channel](https://aka.ms/ai-agents/discord) ਵਿੱਚ ਸ਼ਾਮਿਲ ਹੋਵੋ।
+
+## ਇਸ ਰੇਪੋ ਨੂੰ ਕਲੋਨ ਜਾਂ ਫੋਰਕ ਕਰੋ
+
+ਸ਼ੁਰੂ ਕਰਨ ਲਈ, ਕਿਰਪਾ ਕਰਕੇ GitHub ਰਿਪੋਜ਼ਿਟਰੀ ਨੂੰ ਕਲੋਨ ਜਾਂ ਫੋਰਕ ਕਰੋ। ਇਹ ਤੁਹਾਡੀ ਆਪਣੀ ਵਰਜਨ ਬਣਾਵੇਗਾ ਜਿਸ ਨਾਲ ਤੁਸੀਂ ਕੋਡ ਚਲਾ, ਟੈਸਟ ਅਤੇ ਬਦਲਾਵ ਕਰ ਸਕਦੇ ਹੋ!
+
+ਇਹ <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">ਰਿਪੋ ਨੂੰ ਫੋਰਕ ਕਰੋ</a> ਲਿੰਕ 'ਤੇ ਕਲਿੱਕ ਕਰਕੇ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ
+
+ਹੁਣ ਤੁਹਾਡੇ ਕੋਲ ਇਸ ਕੋਰਸ ਦਾ ਆਪਣਾ ਫੋਰਕ ਕੀਤਾ ਰੇਪੋ ਨਿਮਨਲਿਖਤ ਲਿੰਕ ਵਿੱਚ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ:
+
+![Forked Repo](../../../translated_images/pa/forked-repo.33f27ca1901baa6a.webp)
+
+### Shallow Clone (recommended for workshop / Codespaces)
+
+  >ਪੂਰਾ ਰਿਪੋਜ਼ਿਟਰੀ ਪੂਰੀ ਇਤਿਹਾਸ ਅਤੇ ਸਾਰੇ ਫਾਇਲਾਂ ਡਾਊਨਲੋਡ ਕਰਨ ਸਮੇਂ ਵੱਡਾ (~3 GB) ਹੋ ਸਕਦਾ ਹੈ। ਜੇ ਤੁਸੀਂ ਸਿਰਫ ਵਰਕਸ਼ਾਪ 'ਚ ਸ਼ਾਮਿਲ ਹੋ ਰਹੇ ਹੋ ਜਾਂ ਸਿਰਫ ਕੁਝ ਪਾਠ ਫੋਲਡਰਾਂ ਦੀ ਲੋੜ ਹੈ, ਤਾਂ ਇੱਕ ਸ਼ੈਲੋ ਕਲੋਨ (ਜਾਂ ਸੰਦਰਭੀ sparse ਕਲੋਨ) ਇਤਿਹਾਸ ਨੂੰ ਸੰਖੇਪ ਕਰਕੇ ਅਤੇ/ਜਾਂ ਬਲਾਬਜ਼ ਨੂੰ ਛੱਡ ਕੇ ਵੱਡੇ ਡਾਊਨਲੋਡ ਤੋਂ ਬਚਾਂਦਾ ਹੈ।
+
+#### Quick shallow clone — minimal history, all files
+
+ਹੇਠਾਂ ਦਿੱਤੇ ਹੁਕਮਾਂ ਵਿੱਚ `<your-username>` ਨੂੰ ਆਪਣੇ ਫੋਰਕ URL (ਜਾਂ ਜੇ ਤੁਸੀਂ ਚਾਹੋ ਤਾਂ upstream URL) ਨਾਲ ਬਦਲੋ।
+
+To clone only the latest commit history (small download):
+
+```bash|powershell
+git clone --depth 1 https://github.com/<your-username>/ai-agents-for-beginners.git
+```
+
+To clone a specific branch:
+
+```bash|powershell
+git clone --depth 1 --branch <branch-name> https://github.com/<your-username>/ai-agents-for-beginners.git
+```
+
+#### Partial (sparse) clone — minimal blobs + only selected folders
+
+ਇਹ partial clone ਅਤੇ sparse-checkout ਦੀ ਵਰਤੋਂ ਕਰਦਾ ਹੈ (Git 2.25+ ਦੀ ਲੋੜ ਹੈ ਅਤੇ partial clone ਸਪੋਰਟ ਵਾਲੇ ਆਧੁਨਿਕ Git ਦੀ ਸਿਫਾਰਸ਼ ਕੀਤੀ ਜਾਂਦੀ ਹੈ):
+
+```bash|powershell
+git clone --depth 1 --filter=blob:none --sparse https://github.com/<your-username>/ai-agents-for-beginners.git
+```
+
+Traverse into the repo folder:
+
+```bash|powershell
+cd ai-agents-for-beginners
+```
+
+Then specify which folders you want (example below shows two folders):
+
+```bash|powershell
+git sparse-checkout set 00-course-setup 01-intro-to-ai-agents
+```
+
+After cloning and verifying the files, if you only need files and want to free space (no git history), please delete the repository metadata (💀irreversible — you will lose all Git functionality: no commits, pulls, pushes, or history access).
+
+```bash
+# zsh/bash
+rm -rf .git
+```
+
+```powershell
+# ਪਾਵਰਸ਼ੈੱਲ
+Remove-Item -Recurse -Force .git
+```
+
+#### Using GitHub Codespaces (recommended to avoid local large downloads)
+
+- ਇਸ ਰਿਪੋ ਲਈ ਨਵਾਂ Codespace ਬਣਾਓ GitHub UI ਰਾਹੀਂ ([GitHub UI](https://github.com/codespaces)).  
+
+- ਨਵੇਂ ਬਣਾਏ Codespace ਦੇ ਟਰਮੀਨਲ ਵਿੱਚ, ਉਪਰ ਦਿੱਤੇ ਸ਼ੈਲੋ/ਸਪਾਰਸ ਕਲੋਨ ਹੁਕਮਾਂ ਵਿੱਚੋਂ ਇੱਕ ਚਲਾਓ ਤਾਂ ਜੋ ਕੇਵਲ ਉਹ ਪਾਠ ਫੋਲਡਰ ਜੋ ਤੁਹਾਨੂੰ ਚਾਹੀਦੇ ਹਨ Codespace ਵਰਕਸਪੇਸ ਵਿੱਚ ਆ ਜਾਣ।
+- ਵਿਕਲਪੀ: Codespaces ਦੇ ਅੰਦਰ ਕਲੋਨ ਕਰਨ ਦੇ ਬਾਅਦ, ਜ਼ਿਆਦਾ ਜਗ੍ਹਾ ਮੁੜ ਪ੍ਰਾਪਤ ਕਰਨ ਲਈ .git ਨੂੰ ਹਟਾਓ (ਉਤੇ ਦਿੱਤੇ ਹਟਾਉਣ ਵਾਲੇ ਹੁਕਮ ਵੇਖੋ).
+- ਨੋਟ: ਜੇ ਤੁਸੀਂ ਰਿਪੋ ਨੂੰ ਸਿੱਧਾ Codespaces ਵਿੱਚ ਖੋਲ੍ਹਣਾ ਪਸੰਦ ਕਰਦੇ ਹੋ (ਵੱਡਾ ਕਲੋਨ ਨਾ ਕਰਦੇ ਹੋਏ), ਤਾਂ ਧਿਆਨ ਰਹੇ ਕਿ Codespaces devcontainer ਵਾਤਾਵਰਨ ਤਿਆਰ ਕਰੇਗਾ ਅਤੇ ਇਹ ਹੋ ਸਕਦਾ ਹੈ ਕਿ ਇਹ ਤੁਹਾਨੂੰ ਲੋੜ ਤੋਂ ਵੱਧ ਪ੍ਰੋਵਿਜਨ ਕਰ ਦੇਵੇ। ਇੱਕ ਨਵੇਂ Codespace ਦੇ ਅੰਦਰ ਸ਼ੈਲੋ ਕਾਪੀ ਕਲੋਨ ਕਰਨ ਨਾਲ ਡਿਸਕ ਉਪਯੋਗ 'ਤੇ ਤੁਹਾਡਾ ਹੋਰ ਕਾਬੂ ਰਹੇਗਾ।
+
+#### Tips
+
+- ਜੇ ਤੁਸੀਂ ਸੋਧ/ਕਮੇਟ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ ਤਾਂ ਸਦਾ ਕਲੋਨ URL ਨੂੰ ਆਪਣੇ ਫੋਰਕ ਨਾਲ ਬਦਲੋ।
+- ਜੇ ਬਾਅਦ ਵਿੱਚ ਤੁਹਾਨੂੰ ਹੋਰ ਇਤਿਹਾਸ ਜਾਂ ਫਾਇਲਾਂ ਦੀ ਲੋੜ ਪਏ, ਤਾਂ ਤੁਸੀਂ ਉਨ੍ਹਾਂ ਨੂੰ ਫੈਚ ਕਰ ਸਕਦੇ ਹੋ ਜਾਂ sparse-checkout ਨੂੰ ਅਤਿਰੀਕਤ ਫੋਲਡਰ ਸ਼ਾਮਲ ਕਰਨ ਲਈ ਅਡਜਸਟ ਕਰ ਸਕਦੇ ਹੋ।
+
+## ਕੋਡ ਚਲਾਉਣਾ
+
+ਇਹ ਕੋਰਸ Jupyter Notebooks ਦੀ ਇੱਕ ਲੜੀ ਦਿੰਦਾ ਹੈ ਜੋ ਤੁਹਾਨੂੰ AI ਏਜੰਟ ਬਣਾਉਣ ਦਾ ਹੱਥ-ਵਿੱਚ ਅਨੁਭਵ ਦੇਣ ਲਈ ਚਲਾਈ ਜਾ ਸਕਦੀ ਹੈ।
+
+ਕੋਡ ਨਮੂਨੇ ਹੇਠਾਂ ਵਿੱਚੋਂ ਕਿਸੇ ਇੱਕ ਨੂੰ ਵਰਤਦੇ ਹਨ:
+
+**GitHub ਅਕਾਊਂਟ ਲੋੜੀਦਾ - ਮੁਫ਼ਤ**:
+
+1) Semantic Kernel Agent Framework + GitHub Models Marketplace. Labelled as (semantic-kernel.ipynb)
+2) AutoGen Framework + GitHub Models Marketplace. Labeled as (autogen.ipynb)
+
+**Azure ਸਬਸਕ੍ਰਿਪਸ਼ਨ ਲੋੜੀਂਦਾ**:
+3) Azure AI Foundry + Azure AI Agent Service. Labelled as (azureaiagent.ipynb)
+
+ਅਸੀਂ ਤੁਹਾਨੂੰ ਸਲਾਹ ਦਿੰਦੇ ਹਾਂ ਕਿ ਤਿੰਨਾਂ ਪ੍ਰਕਾਰਾਂ ਦੇ ਉਦਾਹਰਣਾਂ ਨੂੰ ਆਜ਼ਮਾਓ ਤਾਂ ਜੋ ਤੁਸੀਂ ਵੇਖ ਸਕੋ ਕਿ ਤੁਹਾਡੇ ਲਈ ਕਿਹੜਾ ਸਭ ਤੋਂ ਵਧੀਆ ਕੰਮ ਕਰਦਾ ਹੈ।
+
+ਜਿਹੜਾ ਵੀ ਵਿਕਲਪ ਤੁਸੀਂ ਚੁਣੋ, ਇਹ ਨਿਰਧਾਰਿਤ ਕਰੇਗਾ ਕਿ ਹੇਠਾਂ ਕਿਹੜੇ ਸੈਟਅੱਪ ਕਦਮ ਤੁਹਾਨੂੰ ਫਾਲੋ ਕਰਨੇ ਹਨ:
+
+## ਲੋੜੀਂਦੇ ਚੀਜ਼ਾਂ
+
+- Python 3.12+
+  - **ਨੋਟ**: ਜੇ ਤੁਹਾਡੇ ਕੋਲ Python3.12 ਇੰਸਟਾਲ ਨਹੀਂ ਹੈ, ਤਾਂ ਇਹ ਯਕੀਨੀ ਬਣਾਓ ਕਿ ਤੁਸੀਂ ਇਸਨੂੰ ਇੰਸਟਾਲ ਕਰੋ। ਫਿਰ requirements.txt ਫਾਇਲ ਤੋਂ ਸਹੀ ਵਰਜਨ ਲੋਡ ਹੋਣ ਨੂੰ ਯਕੀਨੀ ਬਣਾਉਣ ਲਈ python3.12 ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਆਪਣਾ venv ਬਣਾਓ।
+  
+    >ਉਦਾਹਰਣ
+
+    Python venv ਡਾਇਰੈਕਟਰੀ ਬਣਾਓ:
+
+    ```bash|powershell
+    python -m venv venv
+    ```
+
+    ਫਿਰ venv ਵਾਤਾਵਰਨ ਨੂੰ ਸਰਗਰਮ ਕਰੋ:
+
+    ```bash
+    # zsh/bash
+    source venv/bin/activate
+    ```
+  
+    ```dos
+    # Command Prompt for Windows
+    venv\Scripts\activate
+    ```
+
+- .NET 10+: .NET ਵਰਤੇ ਜਾਣ ਵਾਲੇ ਸੈਂਪਲ ਕੋਡਾਂ ਲਈ, ਯਕੀਨੀ ਬਣਾਓ ਕਿ ਤੁਸੀਂ [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) ਜਾਂ ਉਸ ਤੋਂ ਬਾਅਦ ਦਾ ਵਰਜਨ ਇੰਸਟਾਲ ਕੀਤਾ ਹੋਇਆ ਹੈ। ਫਿਰ ਆਪਣੇ ਇੰਸਟਾਲਡ .NET SDK ਵਰਜਨ ਦੀ ਜਾਂਚ ਕਰੋ:
+
+    ```bash|powershell
+    dotnet --list-sdks
+    ```
+
+- ਇੱਕ GitHub ਅਕਾਊਂਟ - GitHub Models Marketplace ਤੱਕ ਪਹੁੰਚ ਲਈ
+- Azure ਸਬਸਕ੍ਰਿਪਸ਼ਨ - Microsoft Foundry ਤੱਕ ਪਹੁੰਚ ਲਈ
+- Microsoft Foundry ਅਕਾਊਂਟ - Azure AI Agent Service ਤੱਕ ਪਹੁੰਚ ਲਈ
+
+ਅਸੀਂ ਇਸ ਰਿਪੋਜ਼ਿਟਰੀ ਦੀ ਰੂਟ ਵਿੱਚ ਇੱਕ `requirements.txt` ਫਾਇਲ ਸ਼ਾਮਿਲ ਕੀਤੀ ਹੈ ਜਿਸ ਵਿੱਚ ਕੋਡ ਨਮੂਨਿਆਂ ਨੂੰ ਚਲਾਉਣ ਲਈ ਸਾਰੇ ਲੋੜੀਂਦੇ Python ਪੈਕੇਜਾਂ ਦੀ ਸੂਚੀ ਹੈ।
+
+ਤੁਸੀਂ ਉਨ੍ਹਾਂ ਨੂੰ ਇੰਸਟਾਲ ਕਰਨ ਲਈ ਰਿਪੋਜ਼ਿਟਰੀ ਦੀ ਰੂਟ ਵਿੱਚ ਆਪਣੀ ਟਰਮੀਨਲ 'ਚ ਹੇਠਾਂ ਦਿੱਤਾ ਕਮਾਂਡ ਚਲਾ ਸਕਦੇ ਹੋ:
+
+```bash|powershell
+pip install -r requirements.txt
+```
+
+ਅਸੀਂ ਸੁਝਾਅ ਦਿੰਦੇ ਹਾਂ ਕਿ ਕਿਸੇ ਵੀ ਟਕਰਾਅ ਅਤੇ ਸਮੱਸਿਆ ਤੋਂ ਬਚਣ ਲਈ ਇੱਕ Python ਵਿਰਚੁਅਲ ਵਾਤਾਵਰਨ ਬਣਾਇਆ ਜਾਵੇ।
+
+## VSCode ਸੈਟਅੱਪ ਕਰੋ
+
+ਸੁਨਿਸ਼ਚਿਤ ਕਰੋ ਕਿ ਤੁਸੀਂ VSCode ਵਿੱਚ ਸਹੀ Python ਵਰਜਨ ਵਰਤ ਰਹੇ ਹੋ।
+
+![ਚਿੱਤਰ](https://github.com/user-attachments/assets/a85e776c-2edb-4331-ae5b-6bfdfb98ee0e)
+
+## GitHub Models ਵਰਤਣ ਵਾਲੇ ਸੈਂਪਲਾਂ ਲਈ ਸੈਟਅੱਪ
+
+### ਕਦਮ 1: ਆਪਣਾ GitHub Personal Access Token (PAT) ਪ੍ਰਾਪਤ ਕਰੋ
+
+ਇਹ ਕੋਰਸ GitHub Models Marketplace ਨੂੰ ਵਰਤਦਾ ਹੈ, ਜੋ ਤੁਹਾਨੂੰ Large Language Models (LLMs) ਤੱਕ ਮੁਫਤ ਪਹੁੰਚ ਪ੍ਰਦਾਨ ਕਰਦਾ ਹੈ ਜਿਨ੍ਹਾਂ ਦਾ ਤੁਸੀਂ AI ਏਜੰਟ ਬਣਾਉਣ ਲਈ ਉਪਯੋਗ ਕਰੋਗੇ।
+
+GitHub Models ਵਰਤਣ ਲਈ, ਤੁਹਾਨੂੰ ਇੱਕ [GitHub Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) ਬਣਾਉਣੀ ਪਵੇਗੀ।
+
+ਇਹ ਤੁਹਾਡੇ GitHub ਅਕਾਊਂਟ ਵਿੱਚ <a href="https://github.com/settings/personal-access-tokens" target="_blank">Personal Access Tokens ਸੈਟਿੰਗਜ਼</a> ਤੇ ਜਾ ਕੇ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ।
+
+ਟੋਕਨ ਬਣਾਉਂਦੇ ਸਮੇਂ ਕਿਰਪਾ ਕਰਕੇ [Principle of Least Privilege](https://docs.github.com/en/get-started/learning-to-code/storing-your-secrets-safely) ਦੀ ਪਾਲਣਾ ਕਰੋ। ਇਸਦਾ ਅਰਥ ਹੈ ਕਿ ਤੁਹਾਨੂੰ ਸਿਰਫ ਉਹੀ ਅਨੁਮਤੀਆਂ ਦੇਣੀਆਂ ਚਾਹੀਦੀਆਂ ਹਨ ਜਿਨ੍ਹਾਂ ਦੀ ਲੋੜ ਇਸ ਕੋਰਸ ਦੇ ਕੋਡ ਨਮੂਨਿਆਂ ਨੂੰ ਚਲਾਉਣ ਲਈ ਹੈ।
+
+1. ਆਪਣੇ ਸਕ੍ਰੀਨ ਦੇ ਖੱਬੇ ਪਾਸੇ `Fine-grained tokens` ਵਿਕਲਪ ਚੁਣੋ ਅਤੇ **Developer settings** ਤੱਕ ਜਾਓ
+
+   ![Developer settings](../../../translated_images/pa/profile_developer_settings.410a859fe749c755.webp)
+
+   ਫਿਰ `Generate new token` ਚੁਣੋ।
+
+   ![Generate Token](../../../translated_images/pa/fga_new_token.1c1a234afe202ab3.webp)
+
+2. ਆਪਣੇ ਟੋਕਨ ਲਈ ਇੱਕ ਵੇਰਣਾਤਮਕ ਨਾਮ ਦਿਓ ਜੋ ਇਸਦੇ ਉਦੇਸ਼ ਨੂੰ ਦਰਸਾਏ, ਤਾਂ ਜੋ ਬਾਅਦ ਵਿੱਚ ਇਸਨੂੰ ਆਸਾਨੀ ਨਾਲ ਪਹਿਚਾਨਿਆ ਜਾ ਸਕੇ।
+
+    🔐 ਟੋਕਨ ਮਿਆਦ ਦੀ ਸਿਫਾਰਸ਼
+
+    ਸਿਫਾਰਸ਼ੀ ਮਿਆਦ: 30 ਦਿਨ
+    ਜ਼ਿਆਦਾ ਸੁਰੱਖਿਅਤ ਰੁਖ ਲਈ, ਤੁਸੀਂ ਛੋਟੀ ਮਿਆਦ ਚੁਣ ਸਕਦੇ ਹੋ—ਉਦਾਹਰਣ ਲਈ 7 ਦਿਨ 🛡️
+    ਇਹ ਤੁਹਾਡੇ ਲਈ ਇੱਕ ਨਿੱਜੀ ਟਾਰਗੇਟ ਸੈੱਟ ਕਰਨ ਅਤੇ ਕੋਰਸ ਦੇ ਦੌਰਾਨ ਆਪਣੀ ਸਿੱਖਣ ਦੀ ਗਤੀ ਨੂੰ ਬਣਾਈ ਰੱਖਣ ਦਾ ਵਧੀਆ ਤਰੀਕਾ ਹੈ 🚀।
+
+    ![Token Name and Expiration](../../../translated_images/pa/token-name-expiry-date.a095fb0de6386864.webp)
+
+3. ਟੋਕਨ ਦਾ ਦਾਇਰਾ ਸਿਰਫ ਇਸ ਰਿਪੋ ਦੇ ਤੁਹਾਡੇ ਫੋਰਕ ਤੱਕ ਸੀਮਤ ਕਰੋ।
+
+    ![Limit scope to fork repository](../../../translated_images/pa/token_repository_limit.924ade5e11d9d8bb.webp)
+
+4. ਟੋਕਨ ਦੀਆਂ ਅਨੁਮਤੀਆਂ ਨੂੰ ਸੀਮਿਤ ਕਰੋ: **Permissions** ਹੇਠਾਂ **Account** ਟੈਬ 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਅਤੇ "+ Add permissions" ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ। ਇੱਕ ਡ੍ਰੌਪਡਾਊਨ ਖੁلےਗਾ। ਕਿਰਪਾ ਕਰਕੇ **Models** ਲਈ ਖੋਜ ਕਰੋ ਅਤੇ ਇਸਦੇ ਬਕਸੇ 'ਤੇ ਟਿੱਕ ਕਰੋ।
+
+    ![Add Models Permission](../../../translated_images/pa/add_models_permissions.c0c44ed8b40fc143.webp)
+
+5. ਟੋਕਨ ਬਣਾਉਣ ਤੋਂ ਪਹਿਲਾਂ ਲੋੜੀਂਦੀਆਂ ਅਨੁਮਤੀਆਂ ਦੀ ਜਾਂਚ ਕਰੋ। ![Verify Permissions](../../../translated_images/pa/verify_permissions.06bd9e43987a8b21.webp)
+
+6. ਟੋਕਨ ਬਣਾਉਣ ਤੋਂ ਪਹਿਲਾਂ ਯਕੀਨੀ ਬਣਾਓ ਕਿ ਤੁਸੀਂ ਇਸਨੂੰ ਕਿਸੇ ਸੁਰੱਖਿਅਤ ਜਗ੍ਹਾ ਜਿਵੇਂ ਕਿ ਪਾਸਵਰਡ ਮੈਨੇਜਰ ਵੇਲਟ ਵਿੱਚ ਸਟੋਰ ਕਰਨ ਲਈ ਤਿਆਰ ਹੋ, ਕਿਉਂਕਿ ਇਹ ਇੱਕ ਵਾਰੀ ਬਣਾਉਣ ਤੋਂ ਬਾਅਦ ਦੁਬਾਰਾ ਨਹੀਂ ਦਿਖਾਇਆ ਜਾਵੇਗਾ। ![Store Token Securely](../../../translated_images/pa/store_token_securely.08ee2274c6ad6caf.webp)
+
+ਆਪਣਾ ਨਵਾਂ ਬਣਾਇਆ ਹੋਇਆ ਟੋਕਨ ਕਾਪੀ ਕਰੋ। ਹੁਣ ਤੁਸੀਂ ਇਸਨੂੰ ਇਸ ਕੋਰਸ ਵਿੱਚ ਸ਼ਾਮਿਲ `.env` ਫਾਇਲ ਵਿੱਚ ਜੋੜੋਗੇ।
+
+### ਕਦਮ 2: ਆਪਣੀ `.env` ਫਾਇਲ ਬਣਾਓ
+
+ਆਪਣੀ `.env` ਫਾਇਲ ਬਣਾਉਣ ਲਈ ਆਪਣੇ ਟਰਮੀਨਲ ਵਿੱਚ ਹੇਠਾਂ ਦਿੱਤਾ ਕਮਾਂਡ ਚਲਾਓ।
+
+```bash
+# ਜ਼ੀਐਸਐਚ/ਬੈਸ਼
+cp .env.example .env
+```
+
+```powershell
+# ਪਾਵਰਸ਼ੈੱਲ
+Copy-Item .env.example .env
+```
+
+ਇਸ ਨਾਲ example ਫਾਇਲ ਨਕਲ ਹੋ ਕੇ ਤੁਹਾਡੇ ਡਾਇਰੈਕਟਰੀ ਵਿੱਚ `.env` ਬਣ ਜਾਵੇਗੀ ਅਤੇ ਜਿੱਥੇ ਤੁਸੀਂ ਵਾਤਾਵਰਣ ਚਲਕਾਂ (environment variables) ਲਈ ਮੁੱਲ ਭਰੋਗੇ।
+
+ਆਪਣਾ ਟੋਕਨ ਕਾਪੀ ਕਰਨ ਤੋਂ ਬਾਅਦ, ਮਨਪਸੰਦ ਟੈਕਸਟ ਏਡੀਟਰ ਵਿੱਚ `.env` ਫਾਇਲ ਖੋਲ੍ਹੋ ਅਤੇ ਆਪਣਾ ਟੋਕਨ `GITHUB_TOKEN` ਫੀਲਡ ਵਿੱਚ ਪੇਸਟ ਕਰੋ।
+
+![GitHub Token Field](../../../translated_images/pa/github_token_field.20491ed3224b5f4a.webp)
+
+ਹੁਣ ਤੁਸੀਂ ਇਸ ਕੋਰਸ ਦੇ ਕੋਡ ਨਮੂਨਿਆਂ ਨੂੰ ਚਲਾਉਣ ਦੇ ਯੋਗ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ।
+
+## Microsoft Foundry ਅਤੇ Azure AI Agent Service ਵਰਤਣ ਵਾਲੇ ਸੈਂਪਲਾਂ ਲਈ ਸੈਟਅੱਪ
+
+### ਕਦਮ 1: ਆਪਣੀ Azure ਪ੍ਰੋਜੈਕਟ ਏਂਡਪੌਇੰਟ ਪ੍ਰਾਪਤ ਕਰੋ
+
+Azure AI Foundry ਵਿੱਚ ਹੱਬ ਅਤੇ ਪ੍ਰੋਜੈਕਟ ਬਣਾਉਣ ਲਈ ਹੇਠਾਂ ਦਿੱਤੇ ਕਦਮਾਂ ਦੀ ਪਾਲਣਾ ਕਰੋ: [Hub resources overview](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/ai-resources)
+
+ਇੱਕ ਵਾਰੀ ਤੁਸੀਂ ਆਪਣਾ ਪ੍ਰੋਜੈਕਟ ਬਣਾਣ ਤੋਂ ਬਾਅਦ, ਤੁਹਾਨੂੰ ਆਪਣੇ ਪ੍ਰੋਜੈਕਟ ਲਈ ਕਨੈਕਸ਼ਨ ਸਟਰਿੰਗ ਪ੍ਰਾਪਤ ਕਰਨ ਦੀ ਲੋੜ ਹੋਵੇਗੀ।
+
+ਇਹ Microsoft Foundry ਪੋਰਟਲ ਵਿੱਚ ਤੁਹਾਡੇ ਪ੍ਰੋਜੈਕਟ ਦੇ **Overview** ਪੇਜ਼ 'ਤੇ ਜਾ ਕੇ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ।
+
+![Project Connection String](../../../translated_images/pa/project-endpoint.8cf04c9975bbfbf1.webp)
+
+### ਕਦਮ 2: ਆਪਣੀ `.env` ਫਾਇਲ ਬਣਾਓ
+
+ਆਪਣੀ `.env` ਫਾਇਲ ਬਣਾਉਣ ਲਈ ਆਪਣੇ ਟਰਮੀਨਲ ਵਿੱਚ ਹੇਠਾਂ ਦਿੱਤਾ ਕਮਾਂਡ ਚਲਾਓ।
+
+```bash
+# zsh/bash
+cp .env.example .env
+```
+
+```powershell
+# ਪਾਵਰਸ਼ੈੱਲ
+Copy-Item .env.example .env
+```
+
+ਇਸ ਨਾਲ example ਫਾਇਲ ਨਕਲ ਹੋ ਕੇ ਤੁਹਾਡੇ ਡਾਇਰੈਕਟਰੀ ਵਿੱਚ `.env` ਬਣ ਜਾਵੇਗੀ ਅਤੇ ਜਿੱਥੇ ਤੁਸੀਂ ਵਾਤਾਵਰਣ ਚਲਕਾਂ ਲਈ ਮੁੱਲ ਭਰੋਗੇ।
+
+ਆਪਣਾ ਟੋਕਨ ਕਾਪੀ ਕਰਨ ਤੋਂ ਬਾਅਦ, ਮਨਪਸੰਦ ਟੈਕਸਟ ਏਡੀਟਰ ਵਿੱਚ `.env` ਫਾਇਲ ਖੋਲ੍ਹੋ ਅਤੇ ਆਪਣਾ ਟੋਕਨ `PROJECT_ENDPOINT` ਫੀਲਡ ਵਿੱਚ ਪੇਸਟ ਕਰੋ।
+
+### ਕਦਮ 3: Azure ਵਿੱਚ ਸਾਈਨ ਇਨ ਕਰੋ
+
+ਸੁਰੱਖਿਆ ਦੀ ਸ੍ਰੇਸ਼ਠ ਪ੍ਰੈਕਟਿਸ ਦੇ ਤੌਰ 'ਤੇ, ਅਸੀਂ Microsoft Entra ID ਨਾਲ Azure OpenAI ਨੂੰ ਪ੍ਰਮਾਣਿਕ ਕਰਨ ਲਈ [keyless authentication](https://learn.microsoft.com/azure/developer/ai/keyless-connections?tabs=csharp%2Cazure-cli?WT.mc_id=academic-105485-koreyst) ਦੀ ਵਰਤੋਂ ਕਰਾਂਗੇ। 
+
+ਅਗਲੇ ਪੈੜਾਅ ਵਜੋਂ, ਇੱਕ ਟਰਮੀਨਲ ਖੋਲ੍ਹੋ ਅਤੇ `az login --use-device-code` ਚਲਾਕੇ ਆਪਣੇ Azure ਅਕਾਊਂਟ ਵਿੱਚ ਸਾਈਨ ਇਨ ਕਰੋ।
+
+ਜਦੋਂ ਤੁਸੀਂ ਲੌਗਿਨ ਕਰ ਲਿਆ, ਤਾਂ ਟਰਮੀਨਲ ਵਿੱਚ ਆਪਣੀ ਸਬਸਕ੍ਰਿਪਸ਼ਨ ਚੁਣੋ।
+
+## ਵਾਧੂ ਵਾਤਾਵਰਣ ਚਲਕਾਂ - Azure Search ਅਤੇ Azure OpenAI
+
+Agentic RAG ਪਾਠ - ਪਾਠ 5 - ਲਈ ਕੁਝ ਨਮੂਨੇ Azure Search ਅਤੇ Azure OpenAI ਵਰਤਦੇ ਹਨ।
+
+ਜੇ ਤੁਸੀਂ ਇਹ ਨਮੂਨੇ ਚਲਾਉਣ ਚਾਹੁੰਦੇ ਹੋ, ਤਾਂ ਤੁਹਾਨੂੰ ਆਪਣੀ `.env` ਫਾਇਲ ਵਿੱਚ ਹੇਠਾਂ ਦਿੱਤੀਆਂ ਵਾਤਾਵਰਣ ਚਲਕਾਂ ਜੋੜਣ ਦੀ ਲੋੜ ਹੋਏਗੀ:
+
+### Overview Page (Project)
+
+- `AZURE_SUBSCRIPTION_ID` - ਆਪਣੇ ਪ੍ਰੋਜੈਕਟ ਦੇ **Overview** ਪੇਜ਼ 'ਤੇ **Project details** ਚੈੱਕ ਕਰੋ।
+
+- `AZURE_AI_PROJECT_NAME` - ਆਪਣੇ ਪ੍ਰੋਜੈਕਟ ਲਈ **Overview** ਪੇਜ਼ ਦੇ ਉੱਪਰਲੇ ਹਿੱਸੇ 'ਚ ਵੇਖੋ।
+
+- `AZURE_OPENAI_SERVICE` - **Overview** ਪੇਜ਼ 'ਤੇ **Included capabilities** ਟੈਬ ਵਿੱਚ **Azure OpenAI Service** ਲੱਭੋ।
+
+### Management Center
+
+- `AZURE_OPENAI_RESOURCE_GROUP` - **Management Center** ਦੇ **Overview** ਪੇਜ਼ 'ਤੇ **Project properties** ਤੇ ਜਾਓ।
+
+- `GLOBAL_LLM_SERVICE` - **Connected resources** ਹੇਠਾਂ **Azure AI Services** ਕਨੈਕਸ਼ਨ ਨਾਮ ਲੱਭੋ। ਜੇ ਲਿਸਟ ਨਹੀਂ ਹੈ, ਤਾਂ ਆਪਣੇ ਰਿਸੋਰਸ ਗਰੂਪ ਦੇ ਤਹਿਤ Azure portal ਵਿੱਚ AI Services ਰਿਸੋਰਸ ਨਾਮ ਚੈੱਕ ਕਰੋ।
+
+### Models + Endpoints Page
+
+- `AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME` - ਆਪਣਾ embedding ਮਾਡਲ (ਉਦਾਹਰਣ ਲਈ, `text-embedding-ada-002`) ਚੁਣੋ ਅਤੇ ਮਾਡਲ ਵੇਰਵੇ ਤੋਂ **Deployment name** ਨੋਟ ਕਰੋ।
+
+- `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` - ਆਪਣਾ chat ਮਾਡਲ (ਉਦਾਹਰਣ ਲਈ, `gpt-4o-mini`) ਚੁਣੋ ਅਤੇ ਮਾਡਲ ਵੇਰਵੇ ਤੋਂ **Deployment name** ਨੋਟ ਕਰੋ।
+
+### Azure Portal
+
+- `AZURE_OPENAI_ENDPOINT` - **Azure AI services** ਲੱਭੋ, ਉਸ 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਫਿਰ **Resource Management**, **Keys and Endpoint** 'ਤੇ ਜਾਓ, "Azure OpenAI endpoints" ਤੱਕ ਸਕ੍ਰੋਲ ਕਰੋ, ਅਤੇ "Language APIs" ਕਹਿਣ ਵਾਲਾ endpoint ਕਾਪੀ ਕਰੋ।
+
+- `AZURE_OPENAI_API_KEY` - ਉਹੇ ਸਕ੍ਰੀਨ ਤੋਂ KEY 1 ਜਾਂ KEY 2 ਕਾਪੀ ਕਰੋ।
+
+- `AZURE_SEARCH_SERVICE_ENDPOINT` - ਆਪਣਾ **Azure AI Search** ਰਿਸੋਰਸ ਲੱਭੋ, ਇਸ 'ਤੇ ਕਲਿੱਕ ਕਰੋ ਅਤੇ **Overview** ਵੇਖੋ।
+
+- `AZURE_SEARCH_API_KEY` - ਫਿਰ **Settings** ਅਤੇ ਫਿਰ **Keys** ਤੇ ਜਾ ਕੇ ਪ੍ਰਾਇਮਰੀ ਜਾਂ ਸੈਕੰਡਰੀ ਐਡਮਿਨ ਕੀ ਕਾਪੀ ਕਰੋ।
+
+### External Webpage
+
+- `AZURE_OPENAI_API_VERSION` - [API version lifecycle](https://learn.microsoft.com/azure/ai-services/openai/api-version-deprecation#latest-ga-api-release) ਪੇਜ 'ਤੇ **Latest GA API release** ਹਿੱਸੇ ਨੂੰ ਵੇਖੋ।
+
+### keyless authentication ਸੈਟਅੱਪ ਕਰੋ
+
+ਆਪਣੀਆਂ ਸ਼ਿਫਰਾਂ ਨਾਂਹ ਕਰਕੇ ਸਖਤ ਰੂਪ ਵਿੱਚ ਰੱਖਣ ਦੀ ਥਾਂ, ਅਸੀਂ Azure OpenAI ਨਾਲ ਇੱਕ keyless connection ਵਰਤਾਂਗੇ। ਇਸ ਲਈ, ਅਸੀਂ `DefaultAzureCredential` ਨੂੰ ਇੰਪੋਰਟ ਕਰਾਂਗੇ ਅਤੇ ਬਾਅਦ ਵਿੱਚ `DefaultAzureCredential` ਫੰਕਸ਼ਨ ਨੂੰ ਕਾਲ ਕਰਕੇ ਕਰੈਡੈਂਸ਼ੀਅਲ ਪ੍ਰਾਪਤ ਕਰਾਂਗੇ।
+
+```python
+# ਪਾਇਥਨ
+from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
+```
+
+## ਕਿਸੇ ਜਗ੍ਹਾ ਫਸ ਗਏ?
+ਜੇ ਤੁਹਾਨੂੰ ਇਸ ਸੈੱਟਅਪ ਨੂੰ ਚਲਾਉਣ ਵਿੱਚ ਕੋਈ ਸਮੱਸਿਆ ਆ ਰਹੀ ਹੈ, ਤਾਂ ਸਾਡੇ <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Community Discord</a> ਵਿੱਚ ਸ਼ਾਮਿਲ ਹੋਵੋ ਜਾਂ <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">ਇੱਕ ਇਸ਼ੂ ਬਣਾਓ</a>।
+
+## ਅਗਲਾ ਪਾਠ
+
+ਹੁਣ ਤੁਸੀਂ ਇਸ ਕੋਰਸ ਲਈ ਕੋਡ ਚਲਾਉਣ ਲਈ ਤਿਆਰ ਹੋ। AI ਏਜੰਟਾਂ ਦੀ ਦੁਨੀਆ ਬਾਰੇ ਹੋਰ ਸਿੱਖਣ ਦੀਆਂ ਸ਼ੁਭਕਾਮਨਾਵਾਂ! 
+
+[AI ਏਜੰਟਾਂ ਅਤੇ ਏਜੰਟ ਵਰਤੋਂ-ਕੇਸਾਂ ਦਾ ਪਰਿਚਯ](../01-intro-to-ai-agents/README.md)
+
+---
+
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+ਅਸਵੀਕਾਰਤਾ:
+ਇਸ ਦਸਤਾਵੇਜ਼ ਦਾ ਅਨੁਵਾਦ AI ਅਨੁਵਾਦ ਸੇਵਾ [Co-op Translator](https://github.com/Azure/co-op-translator) ਦੀ ਵਰਤੋਂ ਨਾਲ ਕੀਤਾ ਗਿਆ ਹੈ। ਅਸੀਂ ਸਹੀਤਾ ਲਈ ਕੋਸ਼ਿਸ਼ ਕਰਦੇ ਹਾਂ, ਪਰ ਕਿਰਪਾ ਕਰਕੇ ਧਿਆਨ ਰੱਖੋ ਕਿ ਸਵੈਚਾਲਿਤ ਅਨੁਵਾਦਾਂ ਵਿੱਚ ਗਲਤੀਆਂ ਜਾਂ ਅਣਸੁਚਿਤਤਾਵਾਂ ਹੋ ਸਕਦੀਆਂ ਹਨ। ਮੂਲ ਦਸਤਾਵੇਜ਼ ਨੂੰ ਇਸ ਦੀ ਮੂਲ ਭਾਸ਼ਾ ਵਿੱਚ ਅਧਿਕਾਰਿਕ ਸਰੋਤ ਮੰਨਿਆ ਜਾਣਾ ਚਾਹੀਦਾ ਹੈ। ਮਹੱਤਵਪੂਰਨ ਜਾਣਕਾਰੀ ਲਈ, ਪੇਸ਼ੇਵਰ ਮਨੁੱਖੀ ਅਨੁਵਾਦ ਦੀ ਸਿਫ਼ਾਰਿਸ਼ ਕੀਤੀ ਜਾਂਦੀ ਹੈ। ਅਸੀਂ ਇਸ ਅਨੁਵਾਦ ਦੀ ਵਰਤੋਂ ਨਾਲ ਪੈਦਾ ਹੋਣ ਵਾਲੀਆਂ ਕਿਸੇ ਵੀ ਗਲਤਫਹਿਮੀਆਂ ਜਾਂ ਗਲਤ ਵਿਆਖਿਆਵਾਂ ਲਈ ਜ਼ਿੰਮੇਵਾਰ ਨਹੀਂ ਹਾਂ।
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

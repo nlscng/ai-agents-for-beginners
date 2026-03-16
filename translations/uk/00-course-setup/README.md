@@ -1,0 +1,324 @@
+# Налаштування курсу
+
+## Вступ
+
+У цьому уроці розглянемо, як запускати приклади коду цього курсу.
+
+## Приєднуйтесь до інших учнів і отримуйте допомогу
+
+Перед тим, як почати клонувати ваш репозиторій, приєднуйтесь до [Discord-каналу AI Agents For Beginners](https://aka.ms/ai-agents/discord), щоб отримати допомогу з налаштування, відповіді на питання щодо курсу чи поспілкуватися з іншими учнями.
+
+## Клонувати або форкнути цей репозиторій
+
+Щоб почати, будь ласка, клонувати або зробити форк репозиторію GitHub. Це створить вашу власну версію матеріалу курсу, щоб ви могли запускати, тестувати та модифікувати код!
+
+Це можна зробити, натиснувши посилання <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">форкнути репозиторій</a>
+
+Тепер у вас має бути власна форкнута версія цього курсу за наступним посиланням:
+
+![Forked Repo](../../../translated_images/uk/forked-repo.33f27ca1901baa6a.webp)
+
+### Мілкий клон (рекомендовано для воркшопу / Codespaces)
+
+  >Повний репозиторій може бути великим (~3 ГБ), якщо ви завантажуєте всю історію та всі файли. Якщо ви лише відвідуєте воркшоп або вам потрібні лише кілька папок уроків, мілкий клон (або розріджений клон) позбавить вас більшої частини цього завантаження, обрізаючи історію та/або пропускаючи блоби.
+
+#### Швидкий мілкий клон — мінімальна історія, усі файли
+
+Замініть `<your-username>` у наведених командах на URL вашого форку (або upstream-URL, якщо віддаєте перевагу).
+
+Щоб клонувати лише останню історію комітів (невелике завантаження):
+
+```bash|powershell
+git clone --depth 1 https://github.com/<your-username>/ai-agents-for-beginners.git
+```
+
+Щоб клонувати певну гілку:
+
+```bash|powershell
+git clone --depth 1 --branch <branch-name> https://github.com/<your-username>/ai-agents-for-beginners.git
+```
+
+#### Частковий (розріджений) клон — мінімальні блоби + лише вибрані папки
+
+Цей метод використовує частковий клон та sparse-checkout (вимагає Git 2.25+ і рекомендований сучасний Git з підтримкою часткового клонування):
+
+```bash|powershell
+git clone --depth 1 --filter=blob:none --sparse https://github.com/<your-username>/ai-agents-for-beginners.git
+```
+
+Перейдіть у папку репозиторію:
+
+```bash|powershell
+cd ai-agents-for-beginners
+```
+
+Потім вкажіть, які папки ви хочете (приклад нижче показує дві папки):
+
+```bash|powershell
+git sparse-checkout set 00-course-setup 01-intro-to-ai-agents
+```
+
+Після клонування та перевірки файлів, якщо вам потрібні лише файли і ви хочете звільнити місце (без git-історії), будь ласка, видаліть метадані репозиторію (💀 безповоротно — ви втратите увесь функціонал Git: неможливо робити коміти, пулити, пушити чи мати доступ до історії).
+
+```bash
+# zsh/bash
+rm -rf .git
+```
+
+```powershell
+# PowerShell
+Remove-Item -Recurse -Force .git
+```
+
+#### Використання GitHub Codespaces (рекомендовано уникнути великих локальних завантажень)
+
+- Створіть новий Codespace для цього репозиторію через [GitHub UI](https://github.com/codespaces).  
+
+- У терміналі щойно створеного Codespace виконайте одну з команд мілкого/розрідженого клонування вище, щоб завантажити лише потрібні папки уроків у робоче середовище Codespace.
+- За бажанням: після клонування всередині Codespaces видаліть .git, щоб звільнити додаткове місце (див. команди видалення вище).
+- Примітка: якщо ви хочете відкрити репозиторій безпосередньо в Codespaces (без додаткового клонування), пам'ятайте, що Codespaces створить devcontainer-середовище і може все одно виділити більше ресурсів, ніж вам потрібно. Клонування мілкої копії всередині нового Codespace дає більше контролю над використанням дискового простору.
+
+#### Поради
+
+- Завжди замінюйте URL клонування на ваш форк, якщо хочете редагувати/робити коміти.
+- Якщо пізніше вам знадобиться більше історії або файлів, ви можете їх отримати командою fetch або відкоригувати sparse-checkout для включення додаткових папок.
+
+## Запуск коду
+
+Цей курс пропонує серію Jupyter Notebook, які ви можете запускати для практичного досвіду створення AI агентів.
+
+Приклади коду використовують:
+
+**Потрібен обліковий запис GitHub — безкоштовно**:
+
+1) Semantic Kernel Agent Framework + GitHub Models Marketplace. Позначено як (semantic-kernel.ipynb)
+2) AutoGen Framework + GitHub Models Marketplace. Позначено як (autogen.ipynb)
+
+**Потрібна підписка Azure**:
+3) Azure AI Foundry + Azure AI Agent Service. Позначено як (azureaiagent.ipynb)
+
+Ми рекомендуємо спробувати усі три типи прикладів, щоб побачити, який вам підходить найкраще.
+
+Який би варіант ви не обрали, це визначить, які кроки налаштування потрібно виконувати далі:
+
+## Вимоги
+
+- Python 3.12+
+  - **ПРИМІТКА**: Якщо у вас не встановлений Python3.12, переконайтеся, що встановили його. Потім створіть ваше віртуальне оточення за допомогою python3.12, щоб забезпечити правильні версії пакетів з файлу requirements.txt.
+  
+    >Приклад
+
+    Створіть директорію для Python venv:
+
+    ```bash|powershell
+    python -m venv venv
+    ```
+
+    Потім активуйте віртуальне оточення для:
+
+    ```bash
+    # zsh/bash
+    source venv/bin/activate
+    ```
+  
+    ```dos
+    # Command Prompt for Windows
+    venv\Scripts\activate
+    ```
+
+- .NET 10+: Для зразків коду на .NET, переконайтесь, що встановили [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) або пізнішу версію. Перевірте версію встановленого .NET SDK:
+
+    ```bash|powershell
+    dotnet --list-sdks
+    ```
+
+- Обліковий запис GitHub — для доступу до GitHub Models Marketplace
+- Підписка Azure — для доступу до Microsoft Foundry
+- Обліковий запис Microsoft Foundry — для доступу до Azure AI Agent Service
+
+Ми додали файл `requirements.txt` у корені репозиторію з усіма необхідними Python пакетами для запуску прикладів коду.
+
+Ви можете встановити їх, виконавши команду у терміналі в корені репозиторію:
+
+```bash|powershell
+pip install -r requirements.txt
+```
+
+Рекомендуємо створити віртуальне Python оточення, щоб уникнути конфліктів і проблем.
+
+## Налаштування VSCode
+
+Переконайтесь, що у VSCode використовується потрібна версія Python.
+
+![image](https://github.com/user-attachments/assets/a85e776c-2edb-4331-ae5b-6bfdfb98ee0e)
+
+## Налаштування для прикладів з використанням GitHub Models 
+
+### Крок 1: Отримання вашого персонального токену доступу GitHub (PAT)
+
+Цей курс використовує GitHub Models Marketplace, що надає безкоштовний доступ до великих мовних моделей (LLMs), які ви будете використовувати для побудови AI агентів.
+
+Для використання GitHub Models вам потрібно створити [персональний токен доступу GitHub](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
+
+Це можна зробити, перейшовши у <a href="https://github.com/settings/personal-access-tokens" target="_blank">налаштування персональних токенів</a> вашого облікового запису GitHub.
+
+Будь ласка, дотримуйтесь [принципу найменших привілеїв](https://docs.github.com/en/get-started/learning-to-code/storing-your-secrets-safely) при створенні токена. Це означає, що ви маєте надати токену лише ті дозволи, які потрібні для запуску прикладів коду цього курсу.
+
+1. Виберіть у лівій частині екрана опцію `Fine-grained tokens`, перейшовши в **Developer settings**
+
+   ![Developer settings](../../../translated_images/uk/profile_developer_settings.410a859fe749c755.webp)
+
+   Потім натисніть `Generate new token`.
+
+   ![Generate Token](../../../translated_images/uk/fga_new_token.1c1a234afe202ab3.webp)
+
+2. Введіть описову назву для вашого токена, яка відображатиме його призначення, щоб пізніше легко його впізнати.
+
+    🔐 Рекомендація щодо тривалості дії токена
+
+    Рекомендована тривалість: 30 днів  
+    Для більшої безпеки, можна обрати коротший період — наприклад, 7 днів 🛡️  
+    Це гарний спосіб поставити особисту мету і пройти курс, поки ваш навчальний імпульс високий 🚀.
+
+    ![Token Name and Expiration](../../../translated_images/uk/token-name-expiry-date.a095fb0de6386864.webp)
+
+3. Обмежте область дії токена лише вашим форком цього репозиторію.
+
+    ![Limit scope to fork repository](../../../translated_images/uk/token_repository_limit.924ade5e11d9d8bb.webp)
+
+4. Обмежте дозволи токена: у розділі **Permissions** натисніть вкладку **Account** і кнопку "+ Add permissions". З’явиться випадаюче меню. Знайдіть **Models** і відмітьте цей пункт.
+
+    ![Add Models Permission](../../../translated_images/uk/add_models_permissions.c0c44ed8b40fc143.webp)
+
+5. Перевірте необхідні дозволи перед створенням токена. ![Verify Permissions](../../../translated_images/uk/verify_permissions.06bd9e43987a8b21.webp)
+
+6. Перед генерацією токена переконайтесь, що готові зберегти токен у надійному місці, наприклад у менеджері паролів, оскільки після створення ви не зможете його більше побачити. ![Store Token Securely](../../../translated_images/uk/store_token_securely.08ee2274c6ad6caf.webp)
+
+Скопіюйте новий токен, який щойно створили. Тепер додайте його у свій файл `.env` цього курсу.
+
+### Крок 2: Створіть свій `.env` файл
+
+Щоб створити `.env` файл, виконайте в терміналі наступну команду:
+
+```bash
+# zsh/bash
+cp .env.example .env
+```
+
+```powershell
+# PowerShell
+Copy-Item .env.example .env
+```
+
+Ця команда копіює приклад файлу і створює `.env` у вашому каталозі, де ви заповнюєте значення для змінних оточення.
+
+Відкривши `.env` у улюбленому текстовому редакторі, вставте скопійований токен у поле `GITHUB_TOKEN`.
+
+![GitHub Token Field](../../../translated_images/uk/github_token_field.20491ed3224b5f4a.webp)
+
+Тепер ви маєте можливість запускати приклади коду цього курсу.
+
+## Налаштування для прикладів з використанням Microsoft Foundry і Azure AI Agent Service
+
+### Крок 1: Отримайте Endpoint вашого проекту Azure
+
+
+Виконайте кроки зі створення хабу та проекту в Azure AI Foundry за посиланням: [Огляд ресурсів хабу](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/ai-resources)
+
+
+Після створення проекту вам необхідно отримати рядок підключення (connection string) для проекту.
+
+Це можна зробити, зайшовши на сторінку **Overview** вашого проекту в порталі Microsoft Foundry.
+
+![Project Connection String](../../../translated_images/uk/project-endpoint.8cf04c9975bbfbf1.webp)
+
+### Крок 2: Створіть свій `.env` файл
+
+Щоб створити `.env` файл, виконайте в терміналі наступну команду:
+
+```bash
+# zsh/bash
+cp .env.example .env
+```
+
+```powershell
+# PowerShell
+Copy-Item .env.example .env
+```
+
+Ця команда копіює приклад файлу і створює `.env` у вашому каталозі, де ви заповнюєте значення змінних оточення.
+
+Відкривши `.env` у улюбленому текстовому редакторі, вставте ваш endpoint у поле `PROJECT_ENDPOINT`.
+
+### Крок 3: Увійдіть в Azure
+
+В якості рекомендації з безпеки ми будемо використовувати [аутентифікацію без ключів](https://learn.microsoft.com/azure/developer/ai/keyless-connections?tabs=csharp%2Cazure-cli?WT.mc_id=academic-105485-koreyst) для автентифікації в Azure OpenAI через Microsoft Entra ID. 
+
+Далі відкрийте термінал і виконайте команду `az login --use-device-code` щоб увійти у свій обліковий запис Azure.
+
+Після входу виберіть вашу підписку у терміналі.
+
+## Додаткові змінні оточення – Azure Search та Azure OpenAI 
+
+Для уроку Agentic RAG — Урок 5 — є приклади, що використовують Azure Search та Azure OpenAI.
+
+Якщо ви хочете запускати ці приклади, необхідно додати наступні змінні оточення у файл `.env`:
+
+### Сторінка огляду (Проект)
+
+- `AZURE_SUBSCRIPTION_ID` — перевірте розділ **Project details** на сторінці **Overview** вашого проекту.
+
+- `AZURE_AI_PROJECT_NAME` — знайдете у верхній частині сторінки **Overview** проекту.
+
+- `AZURE_OPENAI_SERVICE` — знаходиться в вкладці **Included capabilities** для **Azure OpenAI Service** на сторінці **Overview**.
+
+### Центр керування
+
+- `AZURE_OPENAI_RESOURCE_GROUP` — у розділі **Project properties** на сторінці **Overview** у **Management Center**.
+
+- `GLOBAL_LLM_SERVICE` — у розділі **Connected resources** знайдіть назву з’єднання **Azure AI Services**. Якщо відсутня, перевірте у **Azure portal** в групі ресурсів ім’я ресурсу AI Services.
+
+### Сторінка моделей і кінцевих точок
+
+- `AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME` — виберіть вашу модель ембедінгу (наприклад, `text-embedding-ada-002`) і запишіть **Deployment name** у деталях моделі.
+
+- `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` — виберіть модель для чатів (наприклад, `gpt-4o-mini`) і запишіть **Deployment name** з деталей моделі.
+
+### Портал Azure
+
+- `AZURE_OPENAI_ENDPOINT` — знайдіть **Azure AI services**, натисніть на неї, потім перейдіть в **Resource Management**, **Keys and Endpoint**, прокрутіть до секції "Azure OpenAI endpoints" і скопіюйте ту, що називається "Language APIs".
+
+- `AZURE_OPENAI_API_KEY` — на тій самій сторінці скопіюйте KEY 1 або KEY 2.
+
+- `AZURE_SEARCH_SERVICE_ENDPOINT` — знайдіть ваш ресурс **Azure AI Search**, натисніть на нього, і перегляньте **Overview**.
+
+- `AZURE_SEARCH_API_KEY` — потім перейдіть у **Settings**, потім **Keys** і скопіюйте первинний або вторинний адмінський ключ.
+
+### Зовнішня вебсторінка
+
+- `AZURE_OPENAI_API_VERSION` — відвідайте сторінку [життєвого циклу версій API](https://learn.microsoft.com/azure/ai-services/openai/api-version-deprecation#latest-ga-api-release) у розділі **Latest GA API release**.
+
+### Налаштування аутентифікації без ключів
+
+Замість жорсткого кодування облікових даних ми використовуватимемо підключення без ключа з Azure OpenAI. Для цього імпортуємо `DefaultAzureCredential` і пізніше викличемо функцію `DefaultAzureCredential` для отримання облікових даних.
+
+```python
+# Пайтон
+from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
+```
+
+## Потрапили у глухий кут?
+Якщо у вас виникли проблеми з налаштуванням, приєднуйтеся до нашого <a href="https://discord.gg/kzRShWzttr" target="_blank">Discord спільноти Azure AI</a> або <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">створіть звернення</a>.
+
+## Наступний урок
+
+Тепер ви готові запустити код для цього курсу. Бажаємо успішного навчання у світі AI агентів!
+
+[Вступ до AI агентів та варіанти їх використання](../01-intro-to-ai-agents/README.md)
+
+---
+
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Відмова від відповідальності**:  
+Цей документ було перекладено за допомогою сервісу автоматичного перекладу [Co-op Translator](https://github.com/Azure/co-op-translator). Хоча ми прагнемо до точності, будь ласка, враховуйте, що автоматичні переклади можуть містити помилки або неточності. Оригінальний документ рідною мовою слід вважати авторитетним джерелом. Для критичної інформації рекомендується звертатися до професійного перекладача. Ми не несемо відповідальності за будь-які непорозуміння або неправильні тлумачення, що виникли внаслідок використання цього перекладу.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->
